@@ -1,10 +1,10 @@
 package de.lengsfeld.vr.data;
 
-import de.lengsfeld.virtualremembrance.Cemetery;
-import de.lengsfeld.virtualremembrance.services.CemeteryService;
-import de.lengsfeld.virtualremembrance.util.Events.Added;
-import de.lengsfeld.virtualremembrance.util.Events.Deleted;
-import de.lengsfeld.virtualremembrance.util.Events.Updated;
+import de.lengsfeld.vr.model.Cemetery;
+import de.lengsfeld.vr.services.CemeteryService;
+import de.lengsfeld.vr.util.Events.Added;
+import de.lengsfeld.vr.util.Events.Deleted;
+import de.lengsfeld.vr.util.Events.Updated;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;

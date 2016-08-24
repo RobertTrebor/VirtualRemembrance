@@ -52,7 +52,7 @@ public class Grave implements Serializable {
     @Basic(optional = false)
     @Column(name = "LASTNAME")
     private String lastname;
-    @Basic(optional = false)
+    @Basic(optional = true)
     @Column(name = "SEX")
     private String sex;
     @Column(name = "DATEBIRTH")

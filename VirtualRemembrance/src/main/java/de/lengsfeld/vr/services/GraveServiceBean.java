@@ -1,7 +1,7 @@
 package de.lengsfeld.vr.services;
 
-import de.lengsfeld.virtualremembrance.Cemetery;
-import de.lengsfeld.virtualremembrance.Grave;
+import de.lengsfeld.vr.model.Cemetery;
+import de.lengsfeld.vr.model.Grave;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
