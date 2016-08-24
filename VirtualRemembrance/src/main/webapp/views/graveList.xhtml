@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/resources/templates/templateMain.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:param name="pageTitle" value="graveList"/>
+
+    <ui:define name="main">
+        <div class="container">
+        <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="container con">
+        <!-- here starts the loop >  -->
+        <h1>
+            <h:outputText value="#{graveListController.cemetery.name}" />
+        </h1>
+
+        <h:form>
+            <h:dataTable value="#{graveListController.graves}" var="grave">
+                <h:column>
+                    <h:commandLink value = "x"
+                                   actionListener= "#{graveListController.doDeleteGrave(grave)}" />
+                </h:column>
+                <h:column headerText="First Name">
+                    <h:outputText value="#{grave.firstname}" />
+                </h:column>
+                <h:column headerText="Last Name">
+                    <h:outputText value="#{grave.lastname}" />
+                </h:column>
+                <h:column headerText="Date of Birth">
+                    <h:outputText value="#{grave.datebirth}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </h:column>
+                <h:column headerText="Date of Death">
+                    <h:outputText value="#{grave.datedeath}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <h:commandLink value="Edit"
+                                   action="#{graveListController.doEditGrave(grave)}" />
+                </h:column>
+            </h:dataTable>
+            <h:commandButton value="Add Grave"
+                             action="#{graveListController.doAddGrave}" />
+
+            <h:commandButton value="Cemeteries"
+                             action="#{graveListController.doOk}" />
+        </h:form>
+        </div></div></div></div>
+    </ui:define>
+</ui:composition>

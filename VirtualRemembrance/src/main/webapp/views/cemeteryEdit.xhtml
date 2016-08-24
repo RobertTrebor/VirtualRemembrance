@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/resources/templates/templateMain.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:param name="pageTitle" value="cemeteryEdit"/>
+
+    <ui:define name="main">
+        <div class="container">
+        <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="container con">
+        <!-- here starts the loop >  -->
+        <h1>
+            <h:outputText value="#{cemeteryEditController.title}" />
+        </h1>
+
+        <h:form>
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel value="Name:" />
+                <h:inputText id="a_name"
+                             value="#{cemeteryEditController.cemetery.name}">
+                </h:inputText>
+
+                <h:outputLabel value="Street:"></h:outputLabel>
+                <h:inputText id="a_street"
+                             value="#{cemeteryEditController.cemetery.street}">
+                </h:inputText>
+                <h:outputLabel value="City:" />
+                <h:inputText id="a_city"
+                             value="#{cemeteryEditController.cemetery.city}">
+                </h:inputText>
+                <h:outputLabel value="Country:" />
+                <h:inputText id="a_country"
+                             value="#{cemeteryEditController.cemetery.country}">
+                </h:inputText>
+            </h:panelGrid>
+
+            <h:commandButton value="Save"
+                             action="#{cemeteryEditController.doSave}" />
+            <h:commandButton value="Cancel"
+                             action="#{cemeteryEditController.doCancel}" />
+        </h:form>
+        </div></div></div></div>
+    </ui:define>
+</ui:composition>
