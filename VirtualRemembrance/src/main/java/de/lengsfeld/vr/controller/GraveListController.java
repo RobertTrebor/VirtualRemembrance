@@ -74,7 +74,7 @@ public class GraveListController implements Serializable {
     }
 
     public List<Grave> getGraves() {
-        graves = graveService.getGraveList(cemetery.getId());
+        graves = graveService.getGraveList(cemetery);
         return graves;
     }
 

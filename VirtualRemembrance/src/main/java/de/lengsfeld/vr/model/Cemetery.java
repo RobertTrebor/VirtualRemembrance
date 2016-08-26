@@ -50,6 +50,10 @@ public class Cemetery implements Serializable {
     @Column(name = "LONGITUDE")
     private Double longitude;
 
+    @OneToMany
+    @JoinTable(name = "jnd_graves", joinColumns = @JoinColumn(name="cemetery_fk"), inverseJoinColumns = @JoinColumn(name="grave_fk"))
+    private List<Grave> graves;
+
     //@OneToMany(mappedBy = "cemetery")
     //#private List<Grave> graves;
 
@@ -137,8 +141,8 @@ public class Cemetery implements Serializable {
         this.longitude = longitude;
     }
 
-    //public List<Grave> getGraves() {return graves;}
+    public List<Grave> getGraves() {return graves;}
 
-    //public void setGraves(List<Grave> graves) {this.graves = graves; }
+    public void setGraves(List<Grave> graves) {this.graves = graves; }
 
 }

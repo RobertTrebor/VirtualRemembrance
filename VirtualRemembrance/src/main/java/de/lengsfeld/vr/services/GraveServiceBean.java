@@ -17,12 +17,12 @@ public class GraveServiceBean implements GraveService, Serializable {
     EntityManager entityManager;
     
     @Override
-    public List<Grave> getGraveList(Long cemeteryId) {
+    public List<Grave> getGraveList(Cemetery cemetery) {
         System.out.println("GraveServiceBean - getGraveList");
-        Cemetery managedCemetery = entityManager.find(Cemetery.class, cemeteryId);
-        System.out.println("managedCemetery: " + managedCemetery);
+        Cemetery managedCemetery = entityManager.find(Cemetery.class, cemetery.getId());
+        //System.out.println("managedCemetery: " + managedCemetery);
         //TypedQuery<Grave> query = entityManager.createNamedQuery(Grave.findAll, Grave.class);
-        System.out.println("TypedQuery: ");
+        //System.out.println("TypedQuery: ");
         TypedQuery<Grave> query;
         query = entityManager.createNamedQuery(Grave.findAll, Grave.class);
         query.setParameter("cemetery", managedCemetery);
