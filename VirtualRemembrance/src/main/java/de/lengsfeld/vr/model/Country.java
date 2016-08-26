@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author Tyler Durden
  */
 @Entity
-@Table(name = "COUNTRY")
+@Table(name = "countries")
 @XmlRootElement
 @NamedQueries({
         @NamedQuery(name = "find", query = "SELECT c FROM Country c WHERE c.countrycode = 'AA'"),
@@ -20,10 +20,10 @@ public class Country implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "COUNTRYCODE")
+    @Column(name = "countrycode ")
     private String countrycode;
     @Basic(optional = false)
-    @Column(name = "COUNTRYNAME")
+    @Column(name = "countryname")
     private String countryname;
 
     public Country() {

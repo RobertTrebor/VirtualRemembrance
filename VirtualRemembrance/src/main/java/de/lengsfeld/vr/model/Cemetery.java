@@ -2,20 +2,12 @@ package de.lengsfeld.vr.model;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.inject.Named;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "CEMETERY")
+@Table(name = "cemetery")
 @XmlRootElement
 @NamedQueries({
         @NamedQuery(name = "Cemetery.findc", query = "SELECT c FROM Cemetery c WHERE c.id = 1"),
@@ -58,8 +50,8 @@ public class Cemetery implements Serializable {
     @Column(name = "LONGITUDE")
     private Double longitude;
 
-    @OneToMany(mappedBy = "cemetery")
-    private List<Grave> graves;
+    //@OneToMany(mappedBy = "cemetery")
+    //#private List<Grave> graves;
 
     public Cemetery() {
     }
@@ -145,11 +137,8 @@ public class Cemetery implements Serializable {
         this.longitude = longitude;
     }
 
-    public List<Grave> getGraves() {
-        return graves;
-    }
+    //public List<Grave> getGraves() {return graves;}
 
-    public void setGraves(List<Grave> graves) {
-        this.graves = graves;
-    }
+    //public void setGraves(List<Grave> graves) {this.graves = graves; }
+
 }

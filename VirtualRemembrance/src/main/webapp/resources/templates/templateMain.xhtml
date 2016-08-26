@@ -14,9 +14,9 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <meta name="description" content=""/>
         <meta name="author" content=""/>
-        <title>#{empty pageTitle ? 'Page Title' : pageTitle}</title>
-        <link rel="icon" href="#{resource['favicon.gif']}"/>
-        <link rel="shortcut icon" href="#{resource['favicon.gif']}"/>
+        <!--<title>#{empty pageTitle ? 'Page Title' : pageTitle}</title>-->
+        <!--<link rel="icon" href="#{resource['favicon.gif']}"/>-->
+        <!--<link rel="shortcut icon" href="#{resource['favicon.gif']}"/>-->
 
         <!-- Bootstrap core CSS -->
         <h:outputStylesheet library="webjars" name="bootstrap/3.3.5/css/bootstrap.min.css"/>
@@ -71,11 +71,10 @@
                 <ui:insert name="main"/>
                 <div class="col-md-1"/>
                 <div class="col-md-9 well">
+                    <!--
                     <h2><ui:insert name="header"/></h2>
-
                     <h3><ui:insert name="subheader"/></h3>
-
-
+                    -->
                 </div>
                 <!--/.CONTENT -->
 
@@ -90,11 +89,8 @@
                     </div>
                     <div class="col-md-8"/>
                     <div class="col-md-2 centered-text">
-                        <h:link outcome="/debug" value="Debug">
-                            <!--<f:param name="cid" value="#{javax.enterprise.context.conversation.id}"/>-->
-                        </h:link>
+                        <!--<h:link outcome="/debug" value="Debug"></h:link>-->
                         <br/>
-                        <h:outputText value="Conversation [#{shoppingCartBean.conversation.id}]"/>
                     </div>
                 </div>
             </div>

@@ -2,19 +2,7 @@ package de.lengsfeld.vr.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -39,12 +27,12 @@ public class Grave implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public static final String findAll = "Grave.findAll";
-    public static final String findByCemetery = "Grave.findByCemetery";
+//    public static final String findByCemetery = "Grave.findByCemetery";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "ID")
+    @Column(name = "g_id")
     private Long id;
     @Basic(optional = false)
     @Column(name = "FIRSTNAME")
@@ -62,8 +50,9 @@ public class Grave implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date datedeath;
 
-    @ManyToOne
+    @Column(name = "c_id")
     private Cemetery cemetery;
+
     @Column(name = "GRAVE_LOC")
     private String graveLoc;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -98,9 +87,7 @@ public class Grave implements Serializable {
         return findAll;
     }
 
-    public static String getFindByCemetery() {
-        return findByCemetery;
-    }
+    //public static String getFindByCemetery() {return findByCemetery;}
 
     public Long getId() {
         return id;
@@ -150,14 +137,6 @@ public class Grave implements Serializable {
         this.datedeath = datedeath;
     }
 
-    public Cemetery getCemetery() {
-        return cemetery;
-    }
-
-    public void setCemetery(Cemetery cemetery) {
-        this.cemetery = cemetery;
-    }
-
     public String getGraveLoc() {
         return graveLoc;
     }
@@ -196,5 +175,13 @@ public class Grave implements Serializable {
 
     public void setTombstonePath(String tombstonePath) {
         this.tombstonePath = tombstonePath;
+    }
+
+    public Cemetery getCemetery() {
+        return cemetery;
+    }
+
+    public void setCemetery(Cemetery cemetery) {
+        this.cemetery = cemetery;
     }
 }

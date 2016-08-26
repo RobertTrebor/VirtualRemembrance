@@ -1,0 +1,208 @@
+<dataSource name="MySQL - db500808545@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="db500808545">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="information_schema" />
+    <schema id="3" name="mysql" />
+    <schema id="4" name="performance_schema" />
+    <schema id="5" name="phpmyadmin" />
+    <schema id="6" name="test" />
+    <table id="7" parent="1" name="category" />
+    <table id="8" parent="1" name="cemetery" />
+    <table id="9" parent="1" name="comments" />
+    <table id="10" parent="1" name="countries" />
+    <table id="11" parent="1" name="grave" />
+    <table id="12" parent="1" name="gravecategory" />
+    <table id="13" parent="1" name="photo" />
+    <table id="14" parent="1" name="remembrance" />
+    <table id="15" parent="1" name="test" />
+    <column id="16" parent="7" name="cat_id">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="17" parent="7" name="category_name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <key id="18" parent="7" name="PRIMARY">
+      <columns>cat_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="19" parent="8" name="c_id">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="20" parent="8" name="name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="21" parent="8" name="city">
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="22" parent="8" name="country">
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="23" parent="8" name="zipcode">
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="24" parent="8" name="street">
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <key id="25" parent="8" name="PRIMARY">
+      <columns>c_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="26" parent="9" name="com_id">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="27" parent="9" name="g_id">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+    </column>
+    <column id="28" parent="9" name="comment_title">
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="29" parent="9" name="comment_text">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <key id="30" parent="9" name="PRIMARY">
+      <columns>com_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="31" parent="10" name="countrycode">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="32" parent="10" name="countryname">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <key id="33" parent="10" name="PRIMARY">
+      <columns>countrycode</columns>
+      <primary>1</primary>
+    </key>
+    <column id="34" parent="11" name="g_id">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="35" parent="11" name="firstname">
+      <mandatory>1</mandatory>
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="36" parent="11" name="lastname">
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="37" parent="11" name="sex">
+      <mandatory>1</mandatory>
+      <data-type>varchar(1)|0</data-type>
+    </column>
+    <column id="38" parent="11" name="datebirth">
+      <data-type>date|0</data-type>
+    </column>
+    <column id="39" parent="11" name="datedeath">
+      <data-type>date|0</data-type>
+    </column>
+    <column id="40" parent="11" name="c_id">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+    </column>
+    <column id="41" parent="11" name="grave_loc">
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="42" parent="11" name="latitude">
+      <data-type>double|0</data-type>
+    </column>
+    <column id="43" parent="11" name="longitude">
+      <data-type>double|0</data-type>
+    </column>
+    <column id="44" parent="11" name="vita_path">
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="45" parent="11" name="tombstone_path">
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <key id="46" parent="11" name="PRIMARY">
+      <columns>g_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="47" parent="12" name="gc_id">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="48" parent="12" name="g_id">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+    </column>
+    <column id="49" parent="12" name="cat_id">
+      <data-type>bigint(20)|0</data-type>
+    </column>
+    <key id="50" parent="12" name="PRIMARY">
+      <columns>gc_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="51" parent="13" name="p_id">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="52" parent="13" name="path">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="53" parent="13" name="g_id">
+      <data-type>bigint(20)|0</data-type>
+    </column>
+    <key id="54" parent="13" name="PRIMARY">
+      <columns>p_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="55" parent="14" name="r_id">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="56" parent="14" name="g_id">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+    </column>
+    <column id="57" parent="14" name="visitor_count">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="58" parent="14" name="candle_count">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="59" parent="14" name="wreath_count">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <key id="60" parent="14" name="PRIMARY">
+      <columns>r_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="61" parent="15" name="id">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="62" parent="15" name="firstname">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="63" parent="15" name="lastname">
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <key id="64" parent="15" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>

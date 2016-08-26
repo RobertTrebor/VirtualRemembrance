@@ -3,5 +3,73 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
     http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
-  
+<!--
+    <managed-bean>
+        <managed-bean-name>grave</managed-bean-name>
+        <managed-bean-class>de.lengsfeld.vr.managedbean.GraveManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>cemetery</managed-bean-name>
+        <managed-bean-class>de.lengsfeld.vr.managedbean.CemeteryManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>country</managed-bean-name>
+        <managed-bean-class>de.lengsfeld.vr.managedbean.CountryManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>editGrave</from-outcome>
+            <to-view-id>/resources/jsfgen/EditGrave.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>viewGrave</from-outcome>
+            <to-view-id>/resources/jsfgen/ViewGrave.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>graveList</from-outcome>
+            <to-view-id>/resources/jsfgen/ListGrave.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>createGrave</from-outcome>
+            <to-view-id>/resources/jsfgen/CreateGrave.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>editCemetery</from-outcome>
+            <to-view-id>/resources/jsfgen/EditCemetery.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>viewCemetery</from-outcome>
+            <to-view-id>/resources/jsfgen/ViewCemetery.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cemeteryList</from-outcome>
+            <to-view-id>/resources/jsfgen/ListCemetery.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>createCemetery</from-outcome>
+            <to-view-id>/resources/jsfgen/CreateCemetery.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>editCountry</from-outcome>
+            <to-view-id>/resources/jsfgen/EditCountry.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>viewCountry</from-outcome>
+            <to-view-id>/resources/jsfgen/ViewCountry.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>countryList</from-outcome>
+            <to-view-id>/resources/jsfgen/ListCountry.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>createCountry</from-outcome>
+            <to-view-id>/resources/jsfgen/CreateCountry.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    -->
 </faces-config>

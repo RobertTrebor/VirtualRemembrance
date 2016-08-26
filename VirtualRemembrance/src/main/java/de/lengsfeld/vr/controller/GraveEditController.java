@@ -43,7 +43,7 @@ public class GraveEditController implements Serializable {
         this.grave = grave;
         this.mode = mode;
         this.cemetery = cemetery;
-        grave.setCemetery(cemetery);
+        //grave.setCemetery(cemetery);
     }
 
     public String doSave() {

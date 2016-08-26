@@ -7,10 +7,11 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import java.io.Serializable;
 import java.util.List;
 
 @Stateless
-public class GraveServiceBean implements GraveService {
+public class GraveServiceBean implements GraveService, Serializable {
 
     @PersistenceContext(unitName="VR")
     EntityManager entityManager;
@@ -23,7 +24,7 @@ public class GraveServiceBean implements GraveService {
         //TypedQuery<Grave> query = entityManager.createNamedQuery(Grave.findAll, Grave.class);
         System.out.println("TypedQuery: ");
         TypedQuery<Grave> query;
-        query = entityManager.createNamedQuery(Grave.findByCemetery, Grave.class);
+        query = entityManager.createNamedQuery(Grave.findAll, Grave.class);
         query.setParameter("cemetery", managedCemetery);
         List<Grave> graves = query.getResultList();
 //        List<Grave> graves = managedCemetery.getGraves();

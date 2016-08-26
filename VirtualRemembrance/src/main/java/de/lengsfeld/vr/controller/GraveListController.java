@@ -43,7 +43,7 @@ public class GraveListController implements Serializable {
 
     public void setCemetery(Cemetery cemetery) {
         System.out.println("GraveListController - setCemetery: " + cemetery);
-        cemetery.setGraves(graveService.getGraveList(cemetery.getId()));
+        //cemetery.setGraves(graveService.getGraveList(cemetery.getId()));
         this.cemetery = cemetery;
     }
 

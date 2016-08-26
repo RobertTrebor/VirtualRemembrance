@@ -21,22 +21,22 @@ public class MockCemeteryServiceBean implements CemeteryService {
     public List<Cemetery> getAllCemeteries() {
         
         System.out.println("HERE WE GO");
-        Country country = new Country("AA", "AAA GREAT COUNTRY");
+        Country Country = new Country("AA", "AAA GREAT Country");
         Cemetery cemetery = new Cemetery("Dorotheenstädtischer-Friedrichswerderscher Friedh", "DE");
         System.out.println(cemetery);
         cemetery.setCity("Berlin");
         cemetery.setZipcode("10115");
         cemetery.setStreet("Chausseestr. 126");
-        cemetery.setLatitude(52.52778);
-        cemetery.setLongitude(13.384167);
+        //cemetery.setLatitude(52.52778);
+        //cemetery.setLongitude(13.384167);
         
         Cemetery cemetery2 = new Cemetery("Second Friedhof", "DE");
         System.out.println(cemetery2);
         cemetery2.setCity("Berlin");
         cemetery2.setZipcode("10999");
         cemetery2.setStreet("Sstr. 126");
-        cemetery2.setLatitude(52.52778);
-        cemetery2.setLongitude(13.384167);
+        //cemetery2.setLatitude(52.52778);
+        //cemetery2.setLongitude(13.384167);
         
         Grave grave = new Grave("Robert", "Lengsfeld", "m", cemetery);
         Grave grave2 = new Grave("Sombody", "IsDead", "f", cemetery);
@@ -48,7 +48,7 @@ public class MockCemeteryServiceBean implements CemeteryService {
         // 3-Persists the book to the database
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        em.persist(country);
+        em.persist(Country);
         em.persist(cemetery);
         em.persist(cemetery2);
         em.persist(grave);
@@ -56,13 +56,14 @@ public class MockCemeteryServiceBean implements CemeteryService {
         tx.commit();
 
         // 4-Executes the named query
-        country = em.createNamedQuery("find", Country.class).getSingleResult();
-        System.out.println("######### " + country.getCountryname());
+        /*
+        Country = em.createNamedQuery("find", Country.class).getSingleResult();
+        System.out.println("######### " + Country.getCountryname());
         cemetery = em.createNamedQuery("Cemetery.findc", Cemetery.class).getSingleResult();
         System.out.println("$$$$$$$$$ " + cemetery.getName());
         grave = em.createNamedQuery("Grave.findg", Grave.class).getSingleResult();
         System.out.println("&&&&&&&&&& " + grave.getFirstname());
-        
+        */
         // 5-Closes the entity manager and the factory
         em.close();
         emf.close();

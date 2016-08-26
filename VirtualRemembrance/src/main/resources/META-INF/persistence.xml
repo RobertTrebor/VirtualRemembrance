@@ -10,12 +10,12 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/MySqlDS</jta-data-source>
         <class>de.lengsfeld.vr.model.Cemetery</class>
-        <class>de.lengsfeld.vr.model.Countries</class>
+        <class>de.lengsfeld.vr.model.Country</class>
         <class>de.lengsfeld.vr.model.Grave</class>
         <properties>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLMyISAMDialect" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
             <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/db500808545"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
             <property name="hibernate.connection.username" value="root" />
@@ -23,20 +23,20 @@
         </properties>
 
     </persistence-unit>
-
+<!--
 
     <persistence-unit name="VR2" transaction-type="RESOURCE_LOCAL">
         <description>
             MySQL
         </description>
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <!--<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>de.lengsfeld.vr.model.Cemetery</class>
-        <class>de.lengsfeld.vr.model.Countries</class>
+        <class>de.lengsfeld.vr.model.Country</class>
         <class>de.lengsfeld.vr.model.Grave</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLMyISAMDialect" />
-            <!--<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="create" />
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/db500808545"/>
@@ -44,6 +44,6 @@
             <property name="hibernate.connection.username" value="a" />
             <property name="hibernate.connection.password" value="a" />
         </properties>
-
     </persistence-unit>
+    -->
 </persistence>

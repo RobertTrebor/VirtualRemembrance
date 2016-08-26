@@ -1,18 +1,23 @@
 package de.lengsfeld.vr.controller;
 
-import de.lengsfeld.vr.model.Cemetery;
 import de.lengsfeld.vr.controller.CemeteryEditController.Mode;
+import de.lengsfeld.vr.model.Cemetery;
 import de.lengsfeld.vr.util.Events.Deleted;
 
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.io.Serializable;
+import java.util.List;
 
 @SessionScoped
 @Named
 public class CemeteryListController implements Serializable {
+    @Inject                                 //This is just for debug code TestThis
+    private EntityManager em;               //  " "
 
     @Inject
     private CemeteryEditController cemeteryEditController;
@@ -54,5 +59,22 @@ public class CemeteryListController implements Serializable {
     public void commitDeleteCemetery() {
         System.out.println("CemeteryListController - commitDeleteCemetery");
         cemeteryDeleteEventSrc.fire(cemeteryToDelete);
+    }
+
+
+    public void testThis() {
+        //EntityManagerFactory emf = Persistence.createEntityManagerFactory("VR");
+        //EntityManager em = emf.createEntityManager(); // Retrieve an application managed entity manager
+        String queryString = "SELECT c FROM Cemetery c";
+        System.out.println(queryString);
+        Query query = em.createQuery(queryString);
+
+        List<Cemetery> cemeteries = query.getResultList();
+        System.out.println(cemeteries);
+        for (Cemetery c : cemeteries) {
+            System.out.println(c.getName());
+        }
+        em.close();
+        //emf.close();
     }
 }
