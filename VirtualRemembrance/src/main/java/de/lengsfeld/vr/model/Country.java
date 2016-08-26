@@ -12,10 +12,10 @@ import java.io.Serializable;
 @Table(name = "COUNTRY")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "find", query = "SELECT c FROM Country c WHERE c.countrycode = 'AA'"),
-    @NamedQuery(name = "Country.findAll", query = "SELECT c FROM Country c"),
-    @NamedQuery(name = "Country.findByCountrycode", query = "SELECT c FROM Country c WHERE c.countrycode = :countrycode"),
-    @NamedQuery(name = "Country.findByCountryname", query = "SELECT c FROM Country c WHERE c.countryname = :countryname")})
+        @NamedQuery(name = "find", query = "SELECT c FROM Country c WHERE c.countrycode = 'AA'"),
+        @NamedQuery(name = "Country.findAll", query = "SELECT c FROM Country c"),
+        @NamedQuery(name = "Country.findByCountrycode", query = "SELECT c FROM Country c WHERE c.countrycode = :countrycode"),
+        @NamedQuery(name = "Country.findByCountryname", query = "SELECT c FROM Country c WHERE c.countryname = :countryname")})
 public class Country implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -78,5 +78,5 @@ public class Country implements Serializable {
     public String toString() {
         return "de.lengsfeld.virtualremembrance.Country[ countrycode=" + countrycode + " ]";
     }
-    
+
 }
