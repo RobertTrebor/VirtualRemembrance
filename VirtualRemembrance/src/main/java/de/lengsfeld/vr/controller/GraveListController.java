@@ -1,8 +1,8 @@
 package de.lengsfeld.vr.controller;
 
+import de.lengsfeld.vr.controller.GraveEditController.Mode;
 import de.lengsfeld.vr.model.Cemetery;
 import de.lengsfeld.vr.model.Grave;
-import de.lengsfeld.vr.controller.GraveEditController.Mode;
 import de.lengsfeld.vr.services.GraveService;
 import de.lengsfeld.vr.util.Events.Deleted;
 
@@ -74,6 +74,7 @@ public class GraveListController implements Serializable {
     }
 
     public List<Grave> getGraves() {
+        System.out.println("GraveListController - List<Grave> getGraves(). Cemetery is: " + cemetery.getName());
         graves = graveService.getGraveList(cemetery);
         return graves;
     }

@@ -27,12 +27,11 @@ public class Grave implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public static final String findAll = "Grave.findAll";
-//    public static final String findByCemetery = "Grave.findByCemetery";
+    public static final String findByCemetery = "Grave.findByCemetery";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "g_id")
+    @Column(name = "ID")
     private Long id;
     @Basic(optional = false)
     @Column(name = "FIRSTNAME")
@@ -40,7 +39,6 @@ public class Grave implements Serializable {
     @Basic(optional = false)
     @Column(name = "LASTNAME")
     private String lastname;
-    @Basic(optional = false)
     @Column(name = "SEX")
     private String sex;
     @Column(name = "DATEBIRTH")
@@ -49,8 +47,7 @@ public class Grave implements Serializable {
     @Column(name = "DATEDEATH")
     @Temporal(TemporalType.DATE)
     private Date datedeath;
-
-    @Column(name = "c_id")
+    @ManyToOne
     private Cemetery cemetery;
 
     @Column(name = "GRAVE_LOC")

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/resources/templates/templateMain.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:param name="pageTitle" value="cemeteryList"/>
+
+    <ui:define name="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="container con">
+                        <!-- here starts the loop >  -->
+                        <h1>
+                            <h:outputText value="#{cemeteryEditController.title}" />
+                        </h1>
+
+                        <ui:repeat var="cemetery"  value="#{cemeteries}">
+                            <div class="row rows">
+                                <h:commandLink value = "x"
+                                               actionListener= "#{cemeteryListController.doDeleteCemetery(cemetery)}" />
+                                <h:commandLink value="Edit"
+                                               actionListener="#{cemeteryListController.doEditCemetery(cemetery)}" />
+                                <h:commandLink value="Grave List"
+                                       actionListener="#{cemeteryListController.doListGraves(cemetery)}" />
+                                <h:commandLink value="Add Cemetery"
+                                                 actionListener="#{cemeteryListController.doAddCemetery}" />
+
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="/VirtualRemembrance/resources/img/noimage.jpg" alt="noimage" class="thumbnail"></img>
+                                    <div>
+                                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                            <div class="panel panel-default">
+
+                                            </div>
+                                            <div class="panel-body graves">
+                                                <h:outputText class="rldate" value="#{cemetery.name}"/>
+                                                <h:outputText class="rldate" value="#{cemetery.city}"/>
+                                                <h:outputText class="rldate" value="#{cemetery.zipcode}"/>
+                                                <h:outputText class="rldate" value="#{cemetery.street}"/>
+                                                <h:outputText class="rldate" value="#{cemetery.latitude}"/>
+                                                <h:outputText class="rldate" value="#{cemetery.longitude}"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </ui:repeat>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

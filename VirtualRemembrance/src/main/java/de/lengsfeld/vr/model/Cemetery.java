@@ -1,10 +1,9 @@
 package de.lengsfeld.vr.model;
 
-import java.io.Serializable;
-import java.util.List;
-import javax.inject.Named;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "cemetery")
@@ -25,6 +24,7 @@ public class Cemetery implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public static final String findAll = "Cemetery.findAll";
+    public static final String findById = "Cemetery.findById";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,12 +50,12 @@ public class Cemetery implements Serializable {
     @Column(name = "LONGITUDE")
     private Double longitude;
 
-    @OneToMany
-    @JoinTable(name = "jnd_graves", joinColumns = @JoinColumn(name="cemetery_fk"), inverseJoinColumns = @JoinColumn(name="grave_fk"))
-    private List<Grave> graves;
+//    @OneToMany
+//    @JoinTable(name = "jnd_graves", joinColumns = @JoinColumn(name="cemetery_fk"), inverseJoinColumns = @JoinColumn(name="grave_fk"))
+//    private List<Grave> graves;
 
-    //@OneToMany(mappedBy = "cemetery")
-    //#private List<Grave> graves;
+    @OneToMany(mappedBy = "cemetery")
+    private List<Grave> graves;
 
     public Cemetery() {
     }
@@ -144,5 +144,8 @@ public class Cemetery implements Serializable {
     public List<Grave> getGraves() {return graves;}
 
     public void setGraves(List<Grave> graves) {this.graves = graves; }
+
+//    @OneToMany(mappedBy = "cemetery")
+//    public List<Grave> getGraves() {return graves;}
 
 }

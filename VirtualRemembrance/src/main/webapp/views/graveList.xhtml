@@ -20,6 +20,7 @@
 
         <h:form>
             <h:dataTable value="#{graveListController.graves}" var="grave">
+            <!--To use Producer Method<h:dataTable value="#{graves}" var="grave">-->
                 <h:column>
                     <h:commandLink value = "x"
                                    actionListener= "#{graveListController.doDeleteGrave(grave)}" />

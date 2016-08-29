@@ -66,8 +66,8 @@ public class StartEJB {
 //        entityManager.persist(country);
         entityManager.persist(cemetery);
         entityManager.persist(cemetery2);
-        //entityManager.persist(grave);
-//        entityManager.persist(grave2);
+        entityManager.persist(grave);
+        entityManager.persist(grave2);
         System.out.println("DO WE GET to before COMMIT?");
 //        tx.commit();
 
@@ -76,7 +76,7 @@ public class StartEJB {
 //        System.out.println("######### " + country.getCountryname());
 //        cemetery = entityManager.createNamedQuery("Cemetery.findc", Cemetery.class).getSingleResult();
         System.out.println("$$$$$$$$$ " + cemetery.getName());
-//        grave = entityManager.createNamedQuery("Grave.findg", Grave.class).getSingleResult();
+        grave = entityManager.createNamedQuery("Grave.findg", Grave.class).getSingleResult();
         System.out.println("&&&&&&&&&& " + grave.getFirstname());
 
         // 5-Closes the entity manager and the factory
@@ -90,7 +90,7 @@ public class StartEJB {
         cemeteryList = entityManager.createNamedQuery("Cemetery.findAll", Cemetery.class).getResultList();
         System.out.println("After creating sample data, does Grave contain values?");
         System.out.println(cemeteryList.get(1).getName());
-        //System.out.println(cemeteryList.get(0).getGraves());
+        System.out.println(cemeteryList.get(0).getGraves());
         return cemeteryList;
     }
 

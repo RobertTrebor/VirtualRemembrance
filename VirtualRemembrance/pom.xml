@@ -41,11 +41,17 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
+<!--            <dependency>
                 <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
                 <version>${version.javaee}</version>
                 <scope>provided</scope>
+            </dependency>-->
+            <dependency>
+                <groupId>org.jboss.spec</groupId>
+                <artifactId>jboss-javaee-7.0</artifactId>
+                <version>1.0.3.Final</version>
+                <type>pom</type>
             </dependency>
             <dependency>
                 <groupId>org.jboss.arquillian</groupId>
@@ -86,15 +92,9 @@
                 <version>${version.primefaces-themes}</version>
             </dependency>
             <dependency>
-                <groupId>org.jboss.spec</groupId>
-                <artifactId>jboss-javaee-7.0</artifactId>
-                <version>1.0.3.Final</version>
-                <type>pom</type>
-            </dependency>
-            <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-client</artifactId>
-                <version>3.0.11.Final</version>
+                <version>3.0.19.Final</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -103,14 +103,6 @@
                 <version>1.7.3</version>
                 <scope>test</scope>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
-            <dependency>
-                <groupId>org.hibernate.javax.persistence</groupId>
-                <artifactId>hibernate-jpa-2.1-api</artifactId>
-                <version>1.0.0.Final</version>
-                <scope>provided</scope>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
@@ -120,6 +112,12 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
+        <dependency>
+            <groupId>org.jboss.spec</groupId>
+            <artifactId>jboss-javaee-7.0</artifactId>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
@@ -154,20 +152,8 @@
             <artifactId>all-themes</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.spec</groupId>
-            <artifactId>jboss-javaee-7.0</artifactId>
-            <type>pom</type>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-client</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
-        <dependency>
-            <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.1-api</artifactId>
-            <version>1.0.0.Final</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -175,7 +161,6 @@
             <version>5.2.2.Final</version>
             <scope>provided</scope>
         </dependency>
-
     </dependencies>
     <build>
         <finalName>VirtualRemembrance</finalName>

@@ -6,7 +6,6 @@ import de.lengsfeld.vr.model.Grave;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 import java.io.Serializable;
 import java.util.List;
 
@@ -18,16 +17,18 @@ public class GraveServiceBean implements GraveService, Serializable {
     
     @Override
     public List<Grave> getGraveList(Cemetery cemetery) {
-        System.out.println("GraveServiceBean - getGraveList");
+
+        System.out.println("GraveServiceBean - getGraveList from: " + cemetery.getName());
         Cemetery managedCemetery = entityManager.find(Cemetery.class, cemetery.getId());
-        //System.out.println("managedCemetery: " + managedCemetery);
-        //TypedQuery<Grave> query = entityManager.createNamedQuery(Grave.findAll, Grave.class);
+        System.out.println("managedCemetery: " + managedCemetery);
+
         //System.out.println("TypedQuery: ");
-        TypedQuery<Grave> query;
-        query = entityManager.createNamedQuery(Grave.findAll, Grave.class);
-        query.setParameter("cemetery", managedCemetery);
-        List<Grave> graves = query.getResultList();
-//        List<Grave> graves = managedCemetery.getGraves();
+        //TypedQuery<Grave> query;
+        //query = entityManager.createNamedQuery(Grave.findAll, Grave.class);
+        //query.setParameter("cemetery", managedCemetery);
+        //TypedQuery<Cemetery> query = entityManager.createNamedQuery(Cemetery.findById, Cemetery.class);
+        //cmetery = query.getResultList();
+        List<Grave> graves = managedCemetery.getGraves();
         System.out.println("List<Grave> graves: " + graves);
         graves.size();
         return graves;

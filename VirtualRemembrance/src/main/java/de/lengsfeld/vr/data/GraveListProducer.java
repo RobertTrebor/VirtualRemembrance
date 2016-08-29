@@ -21,12 +21,6 @@ public class GraveListProducer {
     
     @Inject
     private GraveService graveService;
-    
-//    @PostConstruct
-//    public void init() {
-//        System.out.println("GraveListProducer.java - init");
-//        graves = graveService.getGraveList(1l);
-//    }
 
     @Produces
     @Named
@@ -35,7 +29,6 @@ public class GraveListProducer {
     }
     
     public void onGraveAdded(@Observes @Added Grave grave) {
-
         System.out.println("GraveListProducer.java - onGraveAdded");
         graveService.addGrave(grave);
     }
