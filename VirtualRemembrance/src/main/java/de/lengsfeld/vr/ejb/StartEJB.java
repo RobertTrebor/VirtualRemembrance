@@ -1,51 +1,35 @@
-package de.lengsfeld.vr.services;
+package de.lengsfeld.vr.ejb;
 
 import de.lengsfeld.vr.model.Cemetery;
 import de.lengsfeld.vr.model.Grave;
 
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
+import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-@Stateless
-public class CemeteryServiceBean implements CemeteryService {
+/**
+ * Created by robert on 28.08.16.
+ */
+
+@Singleton
+@Startup
+public class StartEJB {
 
     @PersistenceContext(unitName = "VR")
     EntityManager entityManager;
 
-    public CemeteryServiceBean() {
+    public StartEJB() {
     }
 
-    @Override
-    public List<Cemetery> getAllCemeteries() {
+    public void getAllCemeteries() {
         TypedQuery<Cemetery> query = entityManager.createNamedQuery(Cemetery.findAll, Cemetery.class);
         List<Cemetery> cemeteries = query.getResultList();
-        System.out.println("CemeteryServiceBean.java:  getAllCemeteries): " + cemeteries);
-        //if(cemeteries.isEmpty()) cemeteries = createSampleData();
-        return cemeteries;
-    }
-
-    @Override
-    public void addCemetery(Cemetery cemetery) {
-        System.out.println("CemeteryServiceBean-addCemetery");
-        entityManager.persist(cemetery);
-    }
-
-    @Override
-    public void deleteCemetery(Cemetery cemetery) {
-        Cemetery managedCemetery = entityManager.find(Cemetery.class, cemetery.getId());
-        System.out.println("CemeteryServiceBean-deleteCemetery");
-        entityManager.remove(managedCemetery);
-        System.out.println("CemeteryServiceBean-after remove-deleteCemetery");
-    }
-
-    @Override
-    public void updateCemetery(Cemetery cemetery) {
-        System.out.println("CemeteryServiceBean-updateCemetery");
-        entityManager.merge(cemetery);
+        System.out.println("StartEJB.java:  getAllCemeteries): " + cemeteries);
+        if(cemeteries.isEmpty()) cemeteries = createSampleData();
     }
 
     private List<Cemetery> createSampleData() {

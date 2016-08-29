@@ -1,4 +1,4 @@
-package de.lengsfeld.vr;
+package de.lengsfeld.vr.ejb;
 
 import de.lengsfeld.vr.model.Cemetery;
 
@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * Created by robert on 23.08.16.
  */
+
 public class Main {
     public static void main(String[] args) {
 

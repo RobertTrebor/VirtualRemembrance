@@ -2,16 +2,13 @@ package de.lengsfeld.vr.managedbean;
 
 import de.lengsfeld.vr.model.Cemetery;
 
-import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
-import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -19,9 +16,8 @@ import java.util.List;
 /**
  * Created by robert on 26.08.16.
  */
-@Named
-@SessionScoped
-public class CemeteryManagedBean implements Serializable {
+
+public class CemeteryManagedBean {
     final public static String SELECT_ALL_ENTITIES_SQL = "SELECT o FROM Cemetery AS o";
 
     private Cemetery myEntity;

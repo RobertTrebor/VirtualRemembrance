@@ -42,6 +42,12 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-api</artifactId>
+                <version>${version.javaee}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.jboss.arquillian</groupId>
                 <artifactId>arquillian-bom</artifactId>
                 <version>${version.arquillian_core}</version>
@@ -84,7 +90,6 @@
                 <artifactId>jboss-javaee-7.0</artifactId>
                 <version>1.0.3.Final</version>
                 <type>pom</type>
-                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
