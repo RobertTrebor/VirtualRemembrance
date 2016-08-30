@@ -1,5 +1,5 @@
-var activeMarker = new google.maps.Marker({
-});
+//var activeMarker = new google.maps.Marker({
+//});
 
 //var nowTemp = new Date();
 //var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
@@ -10,6 +10,7 @@ jQuery(document).ready(function($) {
 
     function initialize() {
         var mapOptions = {
+
             zoom: 17,
             center: new google.maps.LatLng(52.52778, 13.384167),
             mapTypeId: google.maps.MapTypeId.HYBRID

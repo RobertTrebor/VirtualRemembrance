@@ -115,8 +115,12 @@
             });
         </h:outputScript>-->
         <!-- Placed at the end of the document so the pages load faster-->
-        <h:outputScript target="body" name="js/maps.js" />
+        <!--<h:outputScript target="body" name="js/maps.js" />-->
         <h:outputScript target="body" name="js/main.js" />
+        <f:verbatim>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO3UV-0QrjHrqpxZa0JpcvFrxZRUweGuU&amp;">
+            </script>
+        </f:verbatim>
     </h:body>
 </f:view>
 </html>
