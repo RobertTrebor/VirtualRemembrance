@@ -1,9 +1,11 @@
 package de.lengsfeld.vr.model;
 
-import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Entity
 @Table(name = "GRAVE")
@@ -61,6 +63,9 @@ public class Grave implements Serializable {
     private String vitaPath;
     @Column(name = "TOMBSTONE_PATH")
     private String tombstonePath;
+    @Transient
+    private String tombstonePathDir;
+
 
     public Grave() {
     }
@@ -167,7 +172,7 @@ public class Grave implements Serializable {
     }
 
     public String getTombstonePath() {
-        return tombstonePath;
+        return this.tombstonePath;
     }
 
     public void setTombstonePath(String tombstonePath) {
@@ -181,4 +186,24 @@ public class Grave implements Serializable {
     public void setCemetery(Cemetery cemetery) {
         this.cemetery = cemetery;
     }
+
+    @Transient
+    public String getTombstonePathDir() {
+        String pattern = "([0-9]+)";
+        StringBuilder stringBuilder = new StringBuilder("/resources/cemeteries/");
+        Pattern p = Pattern.compile(pattern);
+        Matcher m = p.matcher(tombstonePath);
+        if (m.find()) {
+            stringBuilder.append(m.group(0));
+            stringBuilder.append("/" + tombstonePath);
+            String tombstonePathDir = stringBuilder.toString();
+            return tombstonePathDir;
+        }
+        else return "/resources/img/noimage.jpg";
+    }
+
+    public void setTombstonePathDir(String tombstonePathDir) {
+        this.tombstonePathDir = tombstonePathDir;
+    }
+
 }
