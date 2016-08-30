@@ -13,42 +13,52 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="container con">
-                        <!-- here starts the loop >  -->
                         <h1>
                             <h:outputText value="#{cemeteryEditController.title}" />
                         </h1>
 
                         <ui:repeat var="cemetery"  value="#{cemeteries}">
-                            <div class="row rows">
-                                <h:commandLink value = "x"
-                                               actionListener= "#{cemeteryListController.doDeleteCemetery(cemetery)}" />
-                                <h:commandLink value="Edit"
-                                               actionListener="#{cemeteryListController.doEditCemetery(cemetery)}" />
-                                <h:commandLink value="Grave List"
-                                       actionListener="#{cemeteryListController.doListGraves(cemetery)}" />
-                                <h:commandLink value="Add Cemetery"
-                                                 actionListener="#{cemeteryListController.doAddCemetery}" />
+                            <h:form>
+                                <div class="row rows">
+                                    <h:commandLink value = "x"
+                                                   actionListener="#{cemeteryListController.doDeleteCemetery(cemetery)}" />
+                                    <h:commandLink value="Edit"
+                                                   action="#{cemeteryListController.doEditCemetery(cemetery)}" />
+                                    <h:commandLink value="Grave List"
+                                           action="#{cemeteryListController.doListGraves(cemetery)}" />
+                                    <h:commandLink value="Add Cemetery"
+                                                     action="#{cemeteryListController.doAddCemetery}" />
 
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                    <img src="/VirtualRemembrance/resources/img/noimage.jpg" alt="noimage" class="thumbnail"></img>
-                                    <div>
-                                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                            <div class="panel panel-default">
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                        <h:graphicImage value="/resources/img/noimage.jpg" alt="noimage" styleClass="img-thumbnail " />
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h:commandLink value="#{cemetery.name}" styleClass="gravename"
+                                                               action="#{cemeteryListController.doEditCemetery(cemetery)}" />
+                                            </div>
 
-                                            </div>
-                                            <div class="panel-body graves">
-                                                <h:outputText class="rldate" value="#{cemetery.name}"/>
-                                                <h:outputText class="rldate" value="#{cemetery.city}"/>
-                                                <h:outputText class="rldate" value="#{cemetery.zipcode}"/>
-                                                <h:outputText class="rldate" value="#{cemetery.street}"/>
-                                                <h:outputText class="rldate" value="#{cemetery.latitude}"/>
-                                                <h:outputText class="rldate" value="#{cemetery.longitude}"/>
-                                            </div>
+                                        </div>
+                                        <div class="panel-body graves">
+                                            <p><h:outputText styleClass="rldate" value="#{cemetery.city}"/></p>
+                                            <p><h:outputText styleClass="rldate" value="#{cemetery.zipcode}"/></p>
+                                            <p><h:outputText styleClass="rldate" value="#{cemetery.street}"/></p>
+                                            <p><h:outputText styleClass="rldate" value="#{cemetery.latitude}"/></p>
+                                            <p><h:outputText styleClass="rldate" value="#{cemetery.longitude}"/></p>
+                                        </div>
+                                        <div class="panel-body graves">
+                                            <ul class="list-unstyled list-group">
+                                                <li><h:outputText class="rldate" value="#{cemetery.city}" styleClass="list-group-item"/></li>
+                                                <li><h:outputText class="rldate" value="#{cemetery.zipcode}" styleClass="list-group-item"/></li>
+                                                <li><h:outputText class="rldate" value="#{cemetery.street}" styleClass="list-group-item"/></li>
+                                                <li><h:outputText class="rldate" value="#{cemetery.latitude}" styleClass="list-group-item"/></li>
+                                                <li><h:outputText class="rldate" value="#{cemetery.longitude}" styleClass="list-group-item"/></li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
+                            </h:form>
                         </ui:repeat>
                     </div>
                 </div>
