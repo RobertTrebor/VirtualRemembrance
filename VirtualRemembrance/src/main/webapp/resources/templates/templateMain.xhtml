@@ -15,12 +15,10 @@
         <meta name="description" content=""/>
         <meta name="author" content=""/>
         <!--<title>#{empty pageTitle ? 'Page Title' : pageTitle}</title>-->
-        <!--<link rel="icon" href="#{resource['favicon.gif']}"/>-->
-        <!--<link rel="shortcut icon" href="#{resource['favicon.gif']}"/>-->
-
+        <link rel="icon" href="#{resource['favicon.ico']}" />
+        <link rel="shortcut icon" href="#{resource['img/favicon.ico']}"/>
         <!-- Bootstrap core CSS -->
         <h:outputStylesheet library="webjars" name="bootstrap/3.3.5/css/bootstrap.min.css"/>
-
 
         <!-- Custom styles for this template -->
         <h:outputStylesheet name="css/style.css"/>
@@ -103,19 +101,22 @@
             </div>
         </div>
 
-            <!-- Bootstrap core JavaScript
-           ================================================== -->
-            <!-- Placed at the end of the document so the pages load faster -->
-            <h:outputScript library="webjars" name="jquery/2.1.4/jquery.min.js"/>
-            <h:outputScript library="webjars" name="bootstrap/3.3.5/js/bootstrap.min.js"/>
-            <h:outputScript target="head">
-                // Add the $() function
-                $ = jQuery;
-                $(document).ready(function () {
-                jQuery.noConflict();
-                });
-            </h:outputScript>
-
+        <!-- Bootstrap core JavaScript
+       ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <h:outputScript library="webjars" name="jquery/2.1.4/jquery.min.js"/>
+        <h:outputScript library="webjars" name="bootstrap/3.3.5/js/bootstrap.min.js"/>
+        <!--
+        <h:outputScript target="head">
+            // Add the $() function
+            $ = jQuery;
+            $(document).ready(function () {
+            jQuery.noConflict();
+            });
+        </h:outputScript>-->
+        <!-- Placed at the end of the document so the pages load faster-->
+        <h:outputScript target="body" name="js/maps.js" />
+        <h:outputScript target="body" name="js/main.js" />
     </h:body>
 </f:view>
 </html>

@@ -23,7 +23,7 @@
                                     <h:commandLink value = "x"
                                                        actionListener= "#{graveListController.doDeleteGrave(grave)}" />
                                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                            <h:graphicImage value="/resources/img/noimage.jpg" alt="noimage" styleClass="img-thumbnail " />
+                                            <h:graphicImage value="#{grave.tombstonePathDir}" alt="noimage" styleClass="img-thumbnail " />
                                         </div>
                                         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                                             <div class="panel panel-default">
@@ -49,6 +49,13 @@
 
                     <h:commandButton value="Cemeteries"
                                      action="#{graveListController.doOk}" />
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="row">
+                    <div class="rltopright">
+                        <div id="gmap"></div>";
+                    </div>
                 </div>
             </div>
         </div>

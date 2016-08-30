@@ -3,6 +3,13 @@
    Author's custom styles
    ========================================================================== */
 
+body {
+    padding-top: 0px;
+    padding-bottom: 20px;
+    background-color: #CCCCFF;
+}
+
+
 .rltitle {
     font-size: 36;
     font-weight: bold;
