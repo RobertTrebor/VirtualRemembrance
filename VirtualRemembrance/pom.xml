@@ -289,6 +289,50 @@
                 </dependency>
             </dependencies>
         </profile>
+
+        <profile>
+            <id>arquillian-wildfly</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${version.maven.surefire.plugin}</version>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <arquillian.launch>arquillian-wildfly</arquillian.launch>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </plugin>
+
+                </plugins>
+            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>org.jboss.spec</groupId>
+                    <artifactId>jboss-javaee-7.0</artifactId>
+                    <version>1.0.3.Final</version>
+                    <type>pom</type>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.jboss.arquillian.container</groupId>
+                    <artifactId>arquillian-weld-ee-embedded-1.1</artifactId>
+                    <version>1.0.0.CR9</version>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.jboss.weld</groupId>
+                    <artifactId>weld-core</artifactId>
+                    <version>2.4.2.Final</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-simple</artifactId>
+                    <version>1.7.24</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
         <profile>
             <id>dev</id>
             <properties>

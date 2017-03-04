@@ -1,4 +1,4 @@
-package java.de.lengsfeld.vr.services;
+package de.lengsfeld.vr.services;
 
 import de.lengsfeld.vr.data.CemeteryListProducer;
 import de.lengsfeld.vr.model.Cemetery;
@@ -28,19 +28,17 @@ public class CemeteryServiceBeanTest {
     @Inject
     private CemeteryService cemeteryService;
 
-
-    @Deployment
-    public static Archive<?> createDeployment() {
-        MavenResolverSystem resolver = Maven.resolver();
-        resolver.loadPomFromFile("pom.xml");
-        //BeansDescriptor beans = Descriptors.create(BeansDescriptor.class).createInterceptors();
-        return ShrinkWrap.create(JavaArchive.class)
-                .addClass(CemeteryServiceBean.class)
-                .addClass(CemeteryListProducer.class)
-                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
-    }
-
+        @Deployment
+        public static Archive<?> createDeployment() {
+            MavenResolverSystem resolver = Maven.resolver();
+            resolver.loadPomFromFile("pom.xml");
+            //BeansDescriptor beans = Descriptors.create(BeansDescriptor.class).createInterceptors();
+            return ShrinkWrap.create(JavaArchive.class)
+                    .addClass(CemeteryServiceBean.class)
+                    .addClass(CemeteryListProducer.class)
+                    .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
+                    .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+        }
 
     @Test
     public void should_be_deployed()
