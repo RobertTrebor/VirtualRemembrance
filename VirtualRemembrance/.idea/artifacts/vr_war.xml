@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="vr:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="VirtualRemembrance.war">
+    <root id="archive" name="vr.war">
       <element id="artifact" artifact-name="vr:war exploded" />
     </root>
   </artifact>
