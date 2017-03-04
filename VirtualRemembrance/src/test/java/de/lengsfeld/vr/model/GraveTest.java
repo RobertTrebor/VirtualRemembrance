@@ -1,4 +1,4 @@
-package de.lengsfeld.vr.model;
+package java.de.lengsfeld.vr.model;
 
 import org.junit.Test;
 

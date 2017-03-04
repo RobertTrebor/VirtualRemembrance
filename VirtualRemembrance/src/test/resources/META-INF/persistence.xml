@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+    <persistence-unit name="VR" transaction-type="JTA">
+        <description>
+            MySQL
+        </description>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <jta-data-source>java:/MySqlDS</jta-data-source>
+        <class>de.lengsfeld.vr.model.Cemetery</class>
+        <class>de.lengsfeld.vr.model.Country</class>
+        <class>de.lengsfeld.vr.model.Grave</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="validate" /><!-- validate update create create-drop -->
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/db500808545"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="root" />
+            <property name="hibernate.connection.password" value="" />
+        </properties>
+
+    </persistence-unit>
+<!--
+
+    <persistence-unit name="VR2" transaction-type="RESOURCE_LOCAL">
+        <description>
+            MySQL
+        </description>
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>de.lengsfeld.vr.model.Cemetery</class>
+        <class>de.lengsfeld.vr.model.Country</class>
+        <class>de.lengsfeld.vr.model.Grave</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLMyISAMDialect" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/db500808545"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="a" />
+            <property name="hibernate.connection.password" value="a" />
+        </properties>
+    </persistence-unit>
+    -->
+</persistence>
