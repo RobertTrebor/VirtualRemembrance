@@ -10,7 +10,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/MySqlDS</jta-data-source>
         <class>de.lengsfeld.vr.model.Cemetery</class>
-        <class>de.lengsfeld.vr.model.Countries</class>
+        <class>de.lengsfeld.vr.model.Country</class>
         <class>de.lengsfeld.vr.model.Grave</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLMyISAMDialect" />
@@ -31,7 +31,7 @@
         </description>
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>de.lengsfeld.vr.model.Cemetery</class>
-        <class>de.lengsfeld.vr.model.Countries</class>
+        <class>de.lengsfeld.vr.model.Country</class>
         <class>de.lengsfeld.vr.model.Grave</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLMyISAMDialect" />
