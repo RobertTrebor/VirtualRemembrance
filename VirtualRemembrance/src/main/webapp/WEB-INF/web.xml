@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <display-name>virtual Remembrance</display-name>
+    <display-name>vr</display-name>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
