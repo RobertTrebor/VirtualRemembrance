@@ -234,8 +234,8 @@
                     <driver>com.mysql.jdbc.Driver</driver>
                     <url>jdbc:mysql://localhost:3306</url>
                     <defaultSchemaName>vr</defaultSchemaName>
-                    <username>root</username>
-                    <password></password>
+                    <username>rl</username>
+                    <password>cimitery</password>
                     <changeLogFile>db/db.changelog.xml</changeLogFile>
                     <contexts>dev</contexts>
                     <diffIncludeCatalog>false</diffIncludeCatalog>
@@ -349,7 +349,7 @@
                     <groupId>org.jboss.arquillian</groupId>
                     <artifactId>arquillian-bom</artifactId>
                     <version>${version.arquillian_core}</version>
-                    <scope>import</scope>
+                    <scope>test</scope>
                     <type>pom</type>
                 </dependency>
                 <dependency>
