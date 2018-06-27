@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @SessionScoped
-@Named("MainBean")
+@Named("mainBean")
 public class MainBean implements Serializable {
 
     //@PersistenceContext(unitName = "VR")

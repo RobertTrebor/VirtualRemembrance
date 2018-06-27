@@ -18,6 +18,7 @@
             <column name="SEX" type="varchar(255)"/>
             <column name="TOMBSTONE_PATH" type="varchar(255)"/>
             <column name="VITA_PATH" type="varchar(255)"/>
+            <column name="CEMETERY_ID" type="bigint"/>
         </createTable>
         <addPrimaryKey tableName="grave" columnNames="id"/>
         <rollback>

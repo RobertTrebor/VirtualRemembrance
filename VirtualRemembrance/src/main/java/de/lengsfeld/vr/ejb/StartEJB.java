@@ -40,16 +40,16 @@ public class StartEJB {
         cemetery.setCity("Berlin");
         cemetery.setZipcode("10115");
         cemetery.setStreet("Chausseestr. 126");
-        cemetery.setLatitude(52.52778);
-        cemetery.setLongitude(13.384167);
+        cemetery.setLatitude("52.52778");
+        cemetery.setLongitude("13.384167");
 
         Cemetery cemetery2 = new Cemetery("Second Friedhof", "DE");
         System.out.println(cemetery2);
         cemetery2.setCity("Berlin");
         cemetery2.setZipcode("10999");
         cemetery2.setStreet("Sstr. 126");
-        cemetery2.setLatitude(52.52778);
-        cemetery2.setLongitude(13.384167);
+        cemetery2.setLatitude("52.52778");
+        cemetery2.setLongitude("13.384167");
         System.out.println("DO WE GET To before Grave?");
         Grave grave = new Grave("Robert", "Lengsfeld", "m", cemetery);
         Grave grave2 = new Grave("Sombody", "IsDead", "f", cemetery);
