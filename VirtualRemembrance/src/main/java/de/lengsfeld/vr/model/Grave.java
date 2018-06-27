@@ -51,14 +51,13 @@ public class Grave implements Serializable {
     private Date datedeath;
     @ManyToOne
     private Cemetery cemetery;
-
     @Column(name = "GRAVE_LOC")
     private String graveLoc;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "LATITUDE")
-    private Double latitude;
+    private String latitude;
     @Column(name = "LONGITUDE")
-    private Double longitude;
+    private String longitude;
     @Column(name = "VITA_PATH")
     private String vitaPath;
     @Column(name = "TOMBSTONE_PATH")
@@ -147,19 +146,19 @@ public class Grave implements Serializable {
         this.graveLoc = graveLoc;
     }
 
-    public Double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public Double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 

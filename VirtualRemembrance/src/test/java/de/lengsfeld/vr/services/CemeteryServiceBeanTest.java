@@ -2,8 +2,6 @@ package de.lengsfeld.vr.services;
 
 import de.lengsfeld.vr.data.CemeteryListProducer;
 import de.lengsfeld.vr.model.Cemetery;
-import de.lengsfeld.vr.services.CemeteryService;
-import de.lengsfeld.vr.services.CemeteryServiceBean;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
