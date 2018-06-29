@@ -33,35 +33,48 @@ public class Grave implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "GRAVE_ID")
     private Long id;
+
     @Basic(optional = false)
     @Column(name = "FIRSTNAME")
     private String firstname;
+
     @Basic(optional = false)
     @Column(name = "LASTNAME")
     private String lastname;
+
     @Column(name = "SEX")
     private String sex;
+
     @Column(name = "DATEBIRTH")
     @Temporal(TemporalType.DATE)
     private Date datebirth;
+
     @Column(name = "DATEDEATH")
     @Temporal(TemporalType.DATE)
     private Date datedeath;
+
     @ManyToOne
+    @JoinColumn(name = "CEMETERY_ID")
     private Cemetery cemetery;
+
     @Column(name = "GRAVE_LOC")
     private String graveLoc;
+
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "LATITUDE")
     private String latitude;
+
     @Column(name = "LONGITUDE")
     private String longitude;
+
     @Column(name = "VITA_PATH")
     private String vitaPath;
+
     @Column(name = "TOMBSTONE_PATH")
     private String tombstonePath;
+
     @Transient
     private String tombstonePathDir;
 

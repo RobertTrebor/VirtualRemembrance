@@ -5,6 +5,7 @@ import de.lengsfeld.vr.model.Cemetery;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -16,7 +17,7 @@ import java.util.List;
 /**
  * Created by robert on 26.08.16.
  */
-
+@Named
 public class CemeteryManagedBean {
     final public static String SELECT_ALL_ENTITIES_SQL = "SELECT o FROM Cemetery AS o";
 
