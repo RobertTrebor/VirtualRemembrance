@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "cemetery")
+@Table(name = "CEMETERY")
 @XmlRootElement
 @NamedQueries({
         @NamedQuery(name = "Cemetery.findc", query = "SELECT c FROM Cemetery c WHERE c.id = 1"),
@@ -28,25 +28,30 @@ public class Cemetery implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "ID")
+    @Column(name = "CEMETERY_ID")
     private Long id;
 
     @Basic(optional = false)
     @Column(name = "NAME", nullable = false)
     private String name;
+
     @Column(name = "CITY", length = 100)
     private String city;
+
     @Basic(optional = false)
     @Column(name = "COUNTRY", length = 100)
     private String country;
+
     @Column(name = "ZIPCODE", length = 20)
     private String zipcode;
+
     @Column(name = "STREET", length = 100)
     private String street;
+
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "LATITUDE")
     private String latitude;
+
     @Column(name = "LONGITUDE")
     private String longitude;
 

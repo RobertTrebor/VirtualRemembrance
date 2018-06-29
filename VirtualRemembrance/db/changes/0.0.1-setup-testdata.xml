@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+
+    <changeSet id="0.0.1-setup-testdata" author="rl">
+        <sql splitStatements="true">
+            INSERT INTO `cemetery` (`cemetery_id`, `name`, `city`, `country`, `zipcode`, `street`) VALUES
+            (1, 'Dorotheenstädtischer-Friedrichswerderscher Friedh', 'Berlin', 'DE', '10115', 'Chausseestr. 126'),
+            (2, 'Friedhof Schöneberg III', 'Berlin', 'DE', '12161', 'Stubenrauchstraße 43-45'),
+            (3, 'ZFriedhof', 'ZStadt', 'DE', 'Z12345', 'ZStreet'),
+            (4, 'Deutschland', 'Berlin', 'DE', '10119', 'hhh'),
+            (5, 'as', 'as', 'AL', '', ''),
+            (6, 'asd', 'asd', 'AS', '', ''),
+            (7, 'asdasd', 'asdasd', 'BD', '', ''),
+            (8, 'sdfsdf', 'sdfdsf', 'DZ', '', ''),
+            (9, 'ksdfsdf', 'asdasdasd', 'AZ', '11111', 'sdsdf'),
+            (10, 'a10', 'Berlin', 'DE', '10119', 'Zehdenicker Str'),
+            (11, 'zzz', 'zzz', 'DE', '', ''),
+            (12, 'Cmentarz Miejski', 'Bia&#322;ystok', 'PL', '15-168', 'W&#322;adys&#322;awa Wysockiego 63'),
+            (13, 'Wallufer Friedhof', 'Walluf', 'DE', '', '');
+        </sql>
+    </changeSet>
+
+    <changeSet id="0.0.1-setup-testdata2" author="rl">
+        <sql splitStatements="true">
+            INSERT INTO `grave` (`grave_id`, `firstname`, `lastname`, `sex`, `datebirth`, `datedeath`, `cemetery_id`, `grave_loc`, `latitude`, `longitude`, `vita_path`, `tombstone_path`) VALUES
+            (1, 'Anna', 'Seghers', 'f', '1900-11-19', '1983-06-01', 1, NULL, '52.52805', '13.38416', 'http://www.lengsfeld.de/cimitery/vitae/Anna_Seghers.html', 'c_id1_g_id1_1386244170.jpg'),
+            (2, 'Arnold', 'Zweig', 'm', '1887-11-10', '1968-11-26', 1, 'NULL', '52.5275', '13.38388', '', 'c_id1_g_id2_1386244904.jpg'),
+            (3, 'Marlene', 'Dietrich', 'f', '1901-12-27', '1992-05-06', 2, NULL, '52.47666', '13.32194', NULL, ''),
+            (33, 'Carl Friedrich', 'Fichte', 'm', '1781-03-13', '1841-10-09', 1, 'NULL', '9.99', '9.99', 'http://www.lengsfeld.de/cimitery/vitae/Fichte.html', 'c_id1_g_id33_1386243013.jpg'),
+            (32, 'Bertolt', 'Brecht', 'f', '1898-02-10', '1956-08-14', 1, 'NULL', '9.99', '9.99', 'http://www.lengsfeld.de/cimitery/vitae/Brecht.html', 'c_id1_g_id32_1386242302.jpg'),
+            (31, 'Johann Friedrich August', 'Borsig', 'm', '1804-06-23', '1854-07-06', 1, 'NULL', '9.99', '9.99', 'http://www.lengsfeld.de/cimitery/vitae/Borsig.html', 'c_id1_g_id31_1386241940.jpg'),
+            (30, 'Dietrich', 'Bonhoeffer', 'm', '1906-02-04', '1945-04-09', 1, 'NULL', '9.99', '9.99', 'http://www.lengsfeld.de/cimitery/vitae/Bonhoeffer.html', 'c_id1_g_id30_1386241387.jpg'),
+            (29, 'Peter Christoph Wilhelm', 'Beuth', 'f', '1781-12-28', '1853-08-27', 1, 'NULL', '9.99', '9.99', 'http://www.lengsfeld.de/cimitery/vitae/Beuth.html', 'c_id1_g_id29_1386240705.jpg'),
+            (34, 'Christa', 'Wolf', 'f', '1929-03-18', '2011-12-01', 1, 'NULL', '52.52778', '13.384167', 'http://www.lengsfeld.de/cimitery/vitae/', 'c_id1_g_id34_1386244881.jpg'),
+            (35, 'Fritz', 'Teufel', 'm', '1943-06-17', '2010-07-06', 1, 'NULL', '52.52778', '13.384444', 'http://www.lengsfeld.de/cimitery/vitae/', 'c_id1_g_id35_1386244843.jpg'),
+            (36, 'Helmut', 'Newton', 'm', '0000-00-00', '0000-00-00', 2, 'NULL', '52.476665', '13.321944', 'http://www.lengsfeld.de/cimitery/vitae/', ''),
+            (37, 'Christian Daniel', 'Rauch', 'm', '1777-01-02', '1857-12-03', 1, 'NULL', '52.526943', '13.383611', 'http://www.lengsfeld.de/cimitery/vitae/', 'c_id1_g_id37_1386243203.jpg'),
+            (80, 'Heinrich', 'Mann', 'm', '1871-03-27', '1950-03-11', 1, 'NULL', '52.52833', '13.383611', 'http://www.lengsfeld.de/cimitery/vitae/', 'c_id1_g_id80_1386321929.jpg'),
+            (92, 'FirstTest', 'LastTest', 'm', '1900-01-01', '2000-01-01', 4, 'NULL', NULL, NULL, '', ''),
+            (89, 'FirstTest', 'Lengsfeld', 'm', '1900-01-01', '2000-01-01', 4, 'NULL', '52.005275', '13.003838888889', '', 'c_id4_g_id89_1390475553.jpg'),
+            (90, 'Arnold', 'Zweig', 'm', '1900-01-01', '2000-01-01', 4, 'NULL', '52.5275', '13.383888888889', '', 'c_id4_g_id90_1390482780.jpg'),
+            (91, 'No', 'Image', 'm', '1900-01-01', '2000-01-01', 4, 'NULL', '0', '0', '', 'c_id4_g_id91_1390483152.jpg'),
+            (93, 'ztfjzt', '', 'f', '2014-01-28', '2014-01-28', 1, 'null', '52.52778', '13.384167', 'http://www.lengsfeld.de/cimitery/vitae/', ''),
+            (94, 'Johannes', 'Rau', 'm', '1931-01-16', '2006-01-27', 1, 'null', '52.528057', '13.383333', 'http://www.lengsfeld.de/cimitery/vitae/', ''),
+            (95, 'aaa123', 'aaa456', 'f', '2007-05-03', '2014-05-03', 1, 'null', '52.52833', '13.383611', 'http://www.lengsfeld.de/cimitery/vitae/', '');
+        </sql>
+    </changeSet>
+</databaseChangeLog>

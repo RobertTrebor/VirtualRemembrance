@@ -18,10 +18,12 @@ import java.io.Serializable;
         @NamedQuery(name = "Country.findByCountryname", query = "SELECT c FROM Country c WHERE c.countryname = :countryname")})
 public class Country implements Serializable {
     private static final long serialVersionUID = 1L;
+
     @Id
     @Basic(optional = false)
     @Column(name = "countrycode ")
     private String countrycode;
+
     @Basic(optional = false)
     @Column(name = "countryname")
     private String countryname;

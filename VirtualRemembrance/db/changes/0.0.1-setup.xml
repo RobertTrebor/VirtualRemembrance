@@ -6,8 +6,10 @@
 
 
     <changeSet id="0.0.1-setup" author="rl">
-        <createTable tableName="grave">
-            <column name="ID" type="bigint"/>
+        <createTable tableName="GRAVE">
+            <column name="GRAVE_ID" type="bigint" autoIncrement="true" startWith="1000">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_GRAVE_ID"/>
+            </column>
             <column name="DATEBIRTH" type="date"/>
             <column name="DATEDEATH" type="date"/>
             <column name="FIRSTNAME" type="varchar(255)"/>
@@ -20,15 +22,16 @@
             <column name="VITA_PATH" type="varchar(255)"/>
             <column name="CEMETERY_ID" type="bigint"/>
         </createTable>
-        <addPrimaryKey tableName="grave" columnNames="id"/>
         <rollback>
-            <delete tableName="grave"/>
+            <delete tableName="GRAVE"/>
         </rollback>
     </changeSet>
 
     <changeSet id="0.0.1-setup-2" author="rl">
-        <createTable tableName="cemetery">
-            <column name="ID" type="bigint"/>
+        <createTable tableName="CEMETERY">
+            <column name="CEMETERY_ID" type="bigint" autoIncrement="true" startWith="1000">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CEMETERY_ID"/>
+            </column>
             <column name="CITY" type="varchar(255)"/>
             <column name="COUNTRY" type="varchar(255)"/>
             <column name="LATITUDE" type="varchar(255)"/>
@@ -38,10 +41,17 @@
             <column name="ZIPCODE" type="varchar(255)"/>
         </createTable>
 
-        <addPrimaryKey tableName="cemetery" columnNames="ID"/>
+        <rollback>
+            <delete tableName="CEMETERY"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="0.0.1-setup-fk" author="rl">
+        <addForeignKeyConstraint baseTableName="GRAVE" baseColumnNames="CEMETERY_ID" constraintName="FK_GRAVE_CEMETERY_ID"
+                                 referencedTableName="CEMETERY" referencedColumnNames="CEMETERY_ID"/>
 
         <rollback>
-            <delete tableName="cemetery"/>
+            <dropForeignKeyConstraint baseTableName="GRAVE"/>
         </rollback>
     </changeSet>
 
