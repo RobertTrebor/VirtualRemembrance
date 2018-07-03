@@ -55,10 +55,6 @@ public class Cemetery implements Serializable {
     @Column(name = "LONGITUDE")
     private String longitude;
 
-//    @OneToMany
-//    @JoinTable(name = "jnd_graves", joinColumns = @JoinColumn(name="cemetery_fk"), inverseJoinColumns = @JoinColumn(name="grave_fk"))
-//    private List<Grave> graves;
-
     @OneToMany(mappedBy = "cemetery")
     private List<Grave> graves;
 
@@ -72,14 +68,6 @@ public class Cemetery implements Serializable {
     public Cemetery(String name, String country) {
         this.name = name;
         this.country = country;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public static String getFindAll() {
-        return findAll;
     }
 
     public Long getId() {

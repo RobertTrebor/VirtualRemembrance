@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -75,6 +76,9 @@ public class Grave implements Serializable {
     @Column(name = "TOMBSTONE_PATH")
     private String tombstonePath;
 
+    @OneToMany(mappedBy = "grave", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Image> images;
+
     @Transient
     private String tombstonePathDir;
 
@@ -93,15 +97,9 @@ public class Grave implements Serializable {
         this.cemetery = cemetery;
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
     public static String getFindAll() {
         return findAll;
     }
-
-    //public static String getFindByCemetery() {return findByCemetery;}
 
     public Long getId() {
         return id;
@@ -197,6 +195,14 @@ public class Grave implements Serializable {
 
     public void setCemetery(Cemetery cemetery) {
         this.cemetery = cemetery;
+    }
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
     }
 
     @Transient
