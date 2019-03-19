@@ -3,8 +3,8 @@ package de.lengsfeld.vr.controller;
 import de.lengsfeld.vr.controller.GraveEditController.Mode;
 import de.lengsfeld.vr.model.Cemetery;
 import de.lengsfeld.vr.model.Grave;
+import de.lengsfeld.vr.model.Image;
 import de.lengsfeld.vr.services.GraveService;
-import de.lengsfeld.vr.services.ImageServiceBean;
 import de.lengsfeld.vr.util.Events.Deleted;
 import java.io.Serializable;
 import java.util.List;
@@ -26,9 +26,6 @@ public class GraveListController implements Serializable {
     private GraveEditController graveEditController;
 
     @Inject
-    private ImageServiceBean imageServiceBean;
-
-    @Inject
     @Deleted
     private Event<Grave> graveDeleteEventSrc;
 
@@ -46,7 +43,6 @@ public class GraveListController implements Serializable {
 
     public void setCemetery(Cemetery cemetery) {
         System.out.println("GraveListController - setCemetery: " + cemetery);
-        //cemetery.setGraves(graveService.getGraveList(cemetery.getId()));
         this.cemetery = cemetery;
     }
 
@@ -84,6 +80,16 @@ public class GraveListController implements Serializable {
 
     public void setGraves(List<Grave> graves) {
         this.graves = graves;
+    }
+
+    public long loadImage(Grave grave){
+        List<Image> images = grave.getImages();
+        long id = 0;
+        if(!images.isEmpty()){
+            Image image = grave.getImages().get(0);
+            id = image.getId();
+        }
+        return id;
     }
 
 }

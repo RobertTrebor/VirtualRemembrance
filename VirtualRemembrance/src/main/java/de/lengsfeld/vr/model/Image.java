@@ -9,7 +9,6 @@ import java.io.Serializable;
 import javax.imageio.ImageIO;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,7 +37,7 @@ public class Image implements Serializable {
     @Column(name = "IMAGE_DATA", nullable = true, columnDefinition = "longblob")
     private byte[] imageData;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn (foreignKey = @ForeignKey(name = "FK_GRAVE_ID"))
     private Grave grave;
 

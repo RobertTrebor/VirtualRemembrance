@@ -30,7 +30,7 @@
         <!-- UI (WebJar, Bootstrap, JQuery...) -->
         <version.bootstrap>3.3.5</version.bootstrap>
         <version.jquery>2.1.4</version.jquery>
-        <version.primefaces>6.0</version.primefaces>
+        <version.primefaces>6.2</version.primefaces>
         <version.primefaces-themes>1.0.10</version.primefaces-themes>
         <!--Maven Plugins & co-->
         <version.maven.war.plugin>3.0.0</version.maven.war.plugin>
@@ -192,7 +192,7 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>provided</scope>
-            <version>5.1.46</version>
+            <version>5.1.47</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.test</groupId>
@@ -270,8 +270,7 @@
                 <configuration>
                     <driver>com.mysql.jdbc.Driver</driver>
                     <url>jdbc:mysql://localhost:3306</url>
-                    <skip>true</skip>
-                    <defaultSchemaName>vr</defaultSchemaName>
+                    <defaultSchemaName>cimitery</defaultSchemaName>
                     <username>rl</username>
                     <password>cimitery</password>
                     <changeLogFile>db/db.changelog.xml</changeLogFile>
@@ -289,7 +288,7 @@
                     <dependency>
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
-                        <version>5.1.21</version>
+                        <version>5.1.47</version>
                     </dependency>
                 </dependencies>
                 <executions>
@@ -476,11 +475,4 @@
             </build>
         </profile>
     </profiles>
-
-    <repositories>
-        <repository>
-            <id>primefaces</id>
-            <url>http://repository.primefaces.org/</url>
-        </repository>
-    </repositories>
 </project>

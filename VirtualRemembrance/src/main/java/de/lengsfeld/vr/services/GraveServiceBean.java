@@ -7,7 +7,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 @Stateless
 public class GraveServiceBean implements GraveService, Serializable {
@@ -23,13 +23,14 @@ public class GraveServiceBean implements GraveService, Serializable {
         System.out.println("managedCemetery: " + managedCemetery);
 
         //System.out.println("TypedQuery: ");
-        Query query = entityManager.createNamedQuery(Grave.findByCemetery).setParameter("cemetery", managedCemetery);
-
-
+        //Query query = entityManager.createNamedQuery(Grave.findByCemetery).setParameter("cemetery", managedCemetery);
         //query.setParameter("cemetery", managedCemetery);
-        //TypedQuery<Cemetery> query = entityManager.createNamedQuery(Cemetery.findById, Cemetery.class);
+
+        TypedQuery<Grave> tq = entityManager.createNamedQuery(Grave.findByCemetery, Grave.class);
+        tq.setParameter("cemetery", managedCemetery);
+        List<Grave> graves = tq.getResultList();
         //cmetery = query.getResultList();
-        List<Grave> graves = query.getResultList();
+        //List<Grave> graves = query.getResultList();
         System.out.println("List<Grave> graves: " + graves);
         graves.size();
         return graves;

@@ -16,7 +16,7 @@ import javax.transaction.Transactional;
 public class ImageServiceBean implements Serializable {
 
     @PersistenceContext(unitName="VR")
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     @Transactional
     public void uploadImage(Image image){

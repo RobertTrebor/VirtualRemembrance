@@ -1,6 +1,7 @@
 package de.lengsfeld.vr.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -8,6 +9,7 @@ import java.util.regex.Pattern;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -90,7 +92,7 @@ public class Grave implements Serializable {
     @Column(name = "TOMBSTONE_PATH")
     private String tombstonePath;
 
-    @OneToMany(mappedBy = "grave")
+    @OneToMany(mappedBy = "grave", fetch = FetchType.EAGER)
     private List<Image> images;
 
     @Transient
@@ -212,6 +214,9 @@ public class Grave implements Serializable {
     }
 
     public List<Image> getImages() {
+        if(images == null){
+            images = new ArrayList<>();
+        }
         return images;
     }
 
