@@ -44,4 +44,8 @@ public class ImageServiceBean implements Serializable {
         return entityManager.find(Image.class, id);
     }
 
+    public EntityManager getEntityManager(){
+        return entityManager;
+    }
+
 }

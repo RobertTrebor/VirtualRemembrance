@@ -49,8 +49,8 @@
                         </h:form>
                         <h:form id="upload" enctype="multipart/form-data">
                             <p:fileUpload value="#{graveEditController.uploadedFile}"
-                                          fileUploadListener="#{graveEditController.doUpload}"
-                                          auto="true"
+                                          fileUploadListener="#{graveEditController.doUploadFiles}"
+                                          dragDropSupport="true"
                                           mode="advanced"/>
 
                         </h:form>

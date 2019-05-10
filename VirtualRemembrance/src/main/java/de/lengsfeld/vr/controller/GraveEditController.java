@@ -3,24 +3,27 @@ package de.lengsfeld.vr.controller;
 import de.lengsfeld.vr.model.Cemetery;
 import de.lengsfeld.vr.model.Grave;
 import de.lengsfeld.vr.model.Image;
+import de.lengsfeld.vr.services.ImageServiceBean;
 import de.lengsfeld.vr.util.Events.Added;
 import de.lengsfeld.vr.util.Events.Updated;
 import de.lengsfeld.vr.util.Events.Uploaded;
-import org.primefaces.event.FileUploadEvent;
-import org.primefaces.model.UploadedFile;
-
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Event;
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import javax.transaction.Transactional;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.UploadedFile;
 
 @SessionScoped
 @Named
@@ -37,6 +40,9 @@ public class GraveEditController implements Serializable {
     @Inject
     @Uploaded
     private Event<Image> imageUploadedEventSrc;
+
+    @Inject
+    private ImageServiceBean imageServiceBean;
 
     public enum Mode {
         EDIT, ADD
@@ -82,7 +88,6 @@ public class GraveEditController implements Serializable {
         FileOutputStream outputStream = new FileOutputStream(tempFile);
         ImageIO.write(bufferedImage, "JPG", outputStream);
 
-
         Image image = new Image();
         image.setGrave(grave);
         image.setFileName(imagesDir + "\\" + filename);
@@ -94,6 +99,27 @@ public class GraveEditController implements Serializable {
         grave.getImages().add(image);
         imageUploadedEventSrc.fire(image);
     }
+
+    @Transactional
+    public void doUploadFiles(FileUploadEvent event) throws IOException {
+        UploadedFile uploadedFile = event.getFile();
+        Image image = new Image();
+        image.setGrave(grave);
+
+        InputStream is = uploadedFile.getInputstream();
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+
+        bos.write(is.read());
+        image.setImageData(bos.toByteArray());
+
+        if(grave.getImages() == null){
+            List<Image> images = new ArrayList<>();
+            grave.setImages(images);
+        }
+        grave.getImages().add(image);
+        imageServiceBean.getEntityManager().persist(image);
+    }
+
 
     public String doCancel() {
         return Pages.GRAVE_LIST;
