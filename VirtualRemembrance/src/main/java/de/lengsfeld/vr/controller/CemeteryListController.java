@@ -3,12 +3,11 @@ package de.lengsfeld.vr.controller;
 import de.lengsfeld.vr.controller.CemeteryEditController.Mode;
 import de.lengsfeld.vr.model.Cemetery;
 import de.lengsfeld.vr.util.Events.Deleted;
-
+import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.io.Serializable;
 
 @SessionScoped
 @Named
@@ -42,6 +41,12 @@ public class CemeteryListController implements Serializable {
         System.out.println("CemeteryListController - doListGraves");
         graveListController.setCemetery(cemetery);
         return Pages.GRAVE_LIST;
+    }
+
+    public String doListGravesAndImages(Cemetery cemetery) {
+        System.out.println("CemeteryListController - doListGravesAndImages");
+        graveListController.setCemetery(cemetery);
+        return Pages.GRAVE_PIC_LIST;
     }
     
     public void doDeleteCemetery(Cemetery cemetery) {

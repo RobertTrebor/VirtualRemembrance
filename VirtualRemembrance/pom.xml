@@ -30,7 +30,7 @@
         <!-- UI (WebJar, Bootstrap, JQuery...) -->
         <version.bootstrap>3.3.5</version.bootstrap>
         <version.jquery>2.1.4</version.jquery>
-        <version.primefaces>6.0</version.primefaces>
+        <version.primefaces>6.2</version.primefaces>
         <version.primefaces-themes>1.0.10</version.primefaces-themes>
         <!--Maven Plugins & co-->
         <version.maven.war.plugin>3.0.0</version.maven.war.plugin>
@@ -100,11 +100,11 @@
                 <artifactId>primefaces</artifactId>
                 <version>${version.primefaces}</version>
             </dependency>
-            <dependency>
+            <!--<dependency>
                 <groupId>org.primefaces.themes</groupId>
                 <artifactId>all-themes</artifactId>
                 <version>${version.primefaces-themes}</version>
-            </dependency>
+            </dependency>-->
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-client</artifactId>
@@ -174,10 +174,10 @@
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>org.primefaces.themes</groupId>
             <artifactId>all-themes</artifactId>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-client</artifactId>
@@ -192,9 +192,38 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>provided</scope>
-            <version>5.1.46</version>
+            <version>8.0.17</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.jboss.arquillian.test</groupId>
+            <artifactId>arquillian-test-impl-base</artifactId>
+            <version>1.1.12.Final</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.core</groupId>
+            <artifactId>arquillian-core-api</artifactId>
+            <version>1.1.12.Final</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-core</artifactId>
+            <version>1.1.12.Final</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-container</artifactId>
+            <version>1.1.12.Final</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+            <artifactId>shrinkwrap-resolver-depchain</artifactId>
+            <type>pom</type>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -241,7 +270,7 @@
                 <configuration>
                     <driver>com.mysql.jdbc.Driver</driver>
                     <url>jdbc:mysql://localhost:3306</url>
-                    <defaultSchemaName>vr</defaultSchemaName>
+                    <defaultSchemaName>cimitery</defaultSchemaName>
                     <username>rl</username>
                     <password>cimitery</password>
                     <changeLogFile>db/db.changelog.xml</changeLogFile>
@@ -259,7 +288,7 @@
                     <dependency>
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
-                        <version>5.1.21</version>
+                        <version>8.0.17</version>
                     </dependency>
                 </dependencies>
                 <executions>
@@ -359,42 +388,7 @@
                     <version>1.1.12.Final</version>
                     <scope>test</scope>
                 </dependency>-->
-                <dependency>
-                    <groupId>org.jboss.arquillian.test</groupId>
-                    <artifactId>arquillian-test-impl-base</artifactId>
-                    <version>1.1.12.Final</version>
-                    <scope>test</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.jboss.arquillian.core</groupId>
-                    <artifactId>arquillian-core-api</artifactId>
-                    <version>1.1.12.Final</version>
-                    <scope>test</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.jboss.arquillian.junit</groupId>
-                    <artifactId>arquillian-junit-core</artifactId>
-                    <version>1.1.12.Final</version>
-                    <scope>test</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.jboss.arquillian.junit</groupId>
-                    <artifactId>arquillian-junit-container</artifactId>
-                    <version>1.1.12.Final</version>
-                    <scope>test</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.jboss.shrinkwrap.resolver</groupId>
-                    <artifactId>shrinkwrap-resolver-depchain</artifactId>
-                    <type>pom</type>
-                    <scope>test</scope>
-                </dependency>
-                <dependency>
-                    <groupId>mysql</groupId>
-                    <artifactId>mysql-connector-java</artifactId>
-                    <scope>test</scope>
-                    <version>5.1.46</version>
-                </dependency>
+
                 <!--<dependency>
                     <groupId>org.jboss.shrinkwrap.resolver</groupId>
                     <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
@@ -481,11 +475,4 @@
             </build>
         </profile>
     </profiles>
-
-    <repositories>
-        <repository>
-            <id>primefaces</id>
-            <url>http://repository.primefaces.org/</url>
-        </repository>
-    </repositories>
 </project>

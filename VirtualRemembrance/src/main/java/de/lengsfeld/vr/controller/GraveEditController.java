@@ -2,14 +2,25 @@ package de.lengsfeld.vr.controller;
 
 import de.lengsfeld.vr.model.Cemetery;
 import de.lengsfeld.vr.model.Grave;
+import de.lengsfeld.vr.model.Image;
 import de.lengsfeld.vr.util.Events.Added;
 import de.lengsfeld.vr.util.Events.Updated;
+import de.lengsfeld.vr.util.Events.Uploaded;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.UploadedFile;
 
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Event;
+import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @SessionScoped
 @Named
@@ -23,6 +34,10 @@ public class GraveEditController implements Serializable {
     @Updated
     private Event<Grave> graveUpdatedEventSrc;
 
+    @Inject
+    @Uploaded
+    private Event<Image> imageUploadedEventSrc;
+
     public enum Mode {
         EDIT, ADD
     };
@@ -30,6 +45,7 @@ public class GraveEditController implements Serializable {
     private Cemetery cemetery;
     private Grave grave;
     private Mode mode;
+    private UploadedFile uploadedFile;
 
     private Mode getMode() {
         return mode;
@@ -56,6 +72,29 @@ public class GraveEditController implements Serializable {
         return Pages.GRAVE_LIST;
     }
 
+    public void doUpload(FileUploadEvent event) throws IOException {
+        UploadedFile uploadedFile = event.getFile();
+        BufferedImage bufferedImage = ImageIO.read(uploadedFile.getInputstream());
+        String filename = "c_id" + bufferedImage.getWidth() + bufferedImage.getHeight() + ".jpg";
+        File imagesDir = new File(System.getProperty("jboss.server.data.dir"), "images");
+        imagesDir.mkdir();
+        File tempFile = new File(imagesDir, filename );
+        FileOutputStream outputStream = new FileOutputStream(tempFile);
+        ImageIO.write(bufferedImage, "JPG", outputStream);
+
+
+        Image image = new Image();
+        image.setGrave(grave);
+        image.setFileName(imagesDir + "\\" + filename);
+
+        if(grave.getImages() == null){
+            List<Image> images = new ArrayList<>();
+            grave.setImages(images);
+        }
+        grave.getImages().add(image);
+        imageUploadedEventSrc.fire(image);
+    }
+
     public String doCancel() {
         return Pages.GRAVE_LIST;
     }
@@ -71,4 +110,13 @@ public class GraveEditController implements Serializable {
     public void setGrave(Grave grave) {
         this.grave = grave;
     }
+
+    public UploadedFile getUploadedFile() {
+        return uploadedFile;
+    }
+
+    public void setUploadedFile(UploadedFile uploadedFile) {
+        this.uploadedFile = uploadedFile;
+    }
+
 }

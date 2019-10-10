@@ -1,11 +1,29 @@
 package de.lengsfeld.vr.model;
 
-import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "GRAVE")
@@ -33,7 +51,6 @@ public class Grave implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "GRAVE_ID")
     private Long id;
 
     @Basic(optional = false)
@@ -56,7 +73,7 @@ public class Grave implements Serializable {
     private Date datedeath;
 
     @ManyToOne
-    @JoinColumn(name = "CEMETERY_ID")
+    @JoinColumn(foreignKey = @ForeignKey(name = "FK_CEMETERY_ID"))
     private Cemetery cemetery;
 
     @Column(name = "GRAVE_LOC")
@@ -74,6 +91,9 @@ public class Grave implements Serializable {
 
     @Column(name = "TOMBSTONE_PATH")
     private String tombstonePath;
+
+    @OneToMany(mappedBy = "grave", fetch = FetchType.EAGER)
+    private List<Image> images;
 
     @Transient
     private String tombstonePathDir;
@@ -93,15 +113,9 @@ public class Grave implements Serializable {
         this.cemetery = cemetery;
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
     public static String getFindAll() {
         return findAll;
     }
-
-    //public static String getFindByCemetery() {return findByCemetery;}
 
     public Long getId() {
         return id;
@@ -197,6 +211,17 @@ public class Grave implements Serializable {
 
     public void setCemetery(Cemetery cemetery) {
         this.cemetery = cemetery;
+    }
+
+    public List<Image> getImages() {
+        if(images == null){
+            images = new ArrayList<>();
+        }
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
     }
 
     @Transient

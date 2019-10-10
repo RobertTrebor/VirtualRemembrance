@@ -1,9 +1,18 @@
 package de.lengsfeld.vr.model;
 
-import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "CEMETERY")
@@ -28,7 +37,6 @@ public class Cemetery implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CEMETERY_ID")
     private Long id;
 
     @Basic(optional = false)
@@ -55,10 +63,6 @@ public class Cemetery implements Serializable {
     @Column(name = "LONGITUDE")
     private String longitude;
 
-//    @OneToMany
-//    @JoinTable(name = "jnd_graves", joinColumns = @JoinColumn(name="cemetery_fk"), inverseJoinColumns = @JoinColumn(name="grave_fk"))
-//    private List<Grave> graves;
-
     @OneToMany(mappedBy = "cemetery")
     private List<Grave> graves;
 
@@ -72,14 +76,6 @@ public class Cemetery implements Serializable {
     public Cemetery(String name, String country) {
         this.name = name;
         this.country = country;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public static String getFindAll() {
-        return findAll;
     }
 
     public Long getId() {

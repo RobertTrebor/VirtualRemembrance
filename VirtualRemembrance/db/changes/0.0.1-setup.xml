@@ -7,7 +7,7 @@
 
     <changeSet id="0.0.1-setup" author="rl">
         <createTable tableName="GRAVE">
-            <column name="GRAVE_ID" type="bigint" autoIncrement="true" startWith="1000">
+            <column name="ID" type="bigint" autoIncrement="true" startWith="1000">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="PK_GRAVE_ID"/>
             </column>
             <column name="DATEBIRTH" type="date"/>
@@ -29,7 +29,7 @@
 
     <changeSet id="0.0.1-setup-2" author="rl">
         <createTable tableName="CEMETERY">
-            <column name="CEMETERY_ID" type="bigint" autoIncrement="true" startWith="1000">
+            <column name="ID" type="bigint" autoIncrement="true" startWith="1000">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CEMETERY_ID"/>
             </column>
             <column name="CITY" type="varchar(255)"/>
@@ -47,8 +47,8 @@
     </changeSet>
 
     <changeSet id="0.0.1-setup-fk" author="rl">
-        <addForeignKeyConstraint baseTableName="GRAVE" baseColumnNames="CEMETERY_ID" constraintName="FK_GRAVE_CEMETERY_ID"
-                                 referencedTableName="CEMETERY" referencedColumnNames="CEMETERY_ID"/>
+        <addForeignKeyConstraint baseTableName="GRAVE" baseColumnNames="CEMETERY_ID" constraintName="FK_CEMETERY_ID"
+                                 referencedTableName="CEMETERY" referencedColumnNames="ID"/>
 
         <rollback>
             <dropForeignKeyConstraint baseTableName="GRAVE"/>
