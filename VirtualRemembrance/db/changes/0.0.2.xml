@@ -5,7 +5,7 @@
 
     <changeSet id="0.0.2-image" author="rl">
         <createTable tableName="IMAGE">
-            <column name="IMAGE_ID" type="bigint" autoIncrement="true" startWith="1000">
+            <column name="ID" type="bigint" autoIncrement="true" startWith="1000">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IMAGE_ID"/>
             </column>
             <column name="FILE_NAME" type="varchar(255)"/>
@@ -20,10 +20,10 @@
     </changeSet>
 
     <changeSet id="0.0.2-image-fk" author="rl">
-        <addForeignKeyConstraint baseTableName="IMAGE" baseColumnNames="GRAVE_ID" constraintName="FK_IMAGE_GRAVE_ID"
-                                 referencedTableName="GRAVE" referencedColumnNames="GRAVE_ID"/>
+        <addForeignKeyConstraint baseTableName="IMAGE" baseColumnNames="GRAVE_ID" constraintName="FK_GRAVE_ID"
+                                 referencedTableName="GRAVE" referencedColumnNames="ID"/>
         <rollback>
-            <dropForeignKeyConstraint baseTableName="IMAGE"/>
+            <dropForeignKeyConstraint baseTableName="IMAGE" constraintName="FK_GRAVE_ID"/>
         </rollback>
     </changeSet>
 

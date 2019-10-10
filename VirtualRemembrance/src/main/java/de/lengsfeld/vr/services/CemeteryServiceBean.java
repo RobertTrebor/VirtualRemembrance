@@ -2,19 +2,18 @@ package de.lengsfeld.vr.services;
 
 import de.lengsfeld.vr.model.Cemetery;
 import de.lengsfeld.vr.model.Grave;
-
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import java.util.ArrayList;
-import java.util.List;
 
 @Stateless
 public class CemeteryServiceBean implements CemeteryService {
 
     @PersistenceContext(unitName = "VR")
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     public CemeteryServiceBean() {
     }

@@ -1,9 +1,22 @@
 package de.lengsfeld.vr.model;
 
-import javax.imageio.ImageIO;
-import javax.persistence.*;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Serializable;
+import javax.imageio.ImageIO;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "IMAGE")
@@ -12,7 +25,6 @@ public class Image implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IMAGE_ID")
     private Long id;
 
     @Column(name="FILE_NAME")
@@ -26,7 +38,7 @@ public class Image implements Serializable {
     private byte[] imageData;
 
     @ManyToOne
-    @JoinColumn (name = "GRAVE_ID")
+    @JoinColumn (foreignKey = @ForeignKey(name = "FK_GRAVE_ID"))
     private Grave grave;
 
 
