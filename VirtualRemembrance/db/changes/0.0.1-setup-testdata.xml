@@ -7,7 +7,7 @@
 
     <changeSet id="0.0.1-setup-testdata" author="rl">
         <sql splitStatements="true">
-            INSERT INTO `cemetery` (`cemetery_id`, `name`, `city`, `country`, `zipcode`, `street`) VALUES
+            INSERT INTO `cemetery` (`id`, `name`, `city`, `country`, `zipcode`, `street`) VALUES
             (1, 'Dorotheenstädtischer-Friedrichswerderscher Friedh', 'Berlin', 'DE', '10115', 'Chausseestr. 126'),
             (2, 'Friedhof Schöneberg III', 'Berlin', 'DE', '12161', 'Stubenrauchstraße 43-45'),
             (3, 'ZFriedhof', 'ZStadt', 'DE', 'Z12345', 'ZStreet'),
@@ -26,7 +26,7 @@
 
     <changeSet id="0.0.1-setup-testdata2" author="rl">
         <sql splitStatements="true">
-            INSERT INTO `grave` (`grave_id`, `firstname`, `lastname`, `sex`, `datebirth`, `datedeath`, `cemetery_id`, `grave_loc`, `latitude`, `longitude`, `vita_path`, `tombstone_path`) VALUES
+            INSERT INTO `grave` (`id`, `firstname`, `lastname`, `sex`, `datebirth`, `datedeath`, `cemetery_id`, `grave_loc`, `latitude`, `longitude`, `vita_path`, `tombstone_path`) VALUES
             (1, 'Anna', 'Seghers', 'f', '1900-11-19', '1983-06-01', 1, NULL, '52.52805', '13.38416', 'http://www.lengsfeld.de/cimitery/vitae/Anna_Seghers.html', 'c_id1_g_id1_1386244170.jpg'),
             (2, 'Arnold', 'Zweig', 'm', '1887-11-10', '1968-11-26', 1, 'NULL', '52.5275', '13.38388', '', 'c_id1_g_id2_1386244904.jpg'),
             (3, 'Marlene', 'Dietrich', 'f', '1901-12-27', '1992-05-06', 2, NULL, '52.47666', '13.32194', NULL, ''),

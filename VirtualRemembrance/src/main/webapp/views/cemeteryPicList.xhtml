@@ -5,7 +5,7 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="/resources/templates/templateMain.xhtml"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
+>
     <ui:param name="pageTitle" value="cemeteryList"/>
 
     <ui:define name="main">
@@ -25,7 +25,7 @@
                                     <h:commandLink value="Edit"
                                                    action="#{cemeteryListController.doEditCemetery(cemetery)}" />
                                     <h:commandLink value="Grave List"
-                                           action="#{cemeteryListController.doListGraves(cemetery)}" />
+                                           action="#{cemeteryListController.doListGravesAndImages(cemetery)}" />
                                     <h:commandLink value="Add Cemetery"
                                                      action="#{cemeteryListController.doAddCemetery}" />
 

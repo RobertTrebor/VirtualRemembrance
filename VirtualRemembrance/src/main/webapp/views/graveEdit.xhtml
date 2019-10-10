@@ -5,44 +5,58 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="/resources/templates/templateMain.xhtml"
-                xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:p="http://primefaces.org/ui">
     <ui:param name="pageTitle" value="graveEdit"/>
 
     <ui:define name="main">
         <div class="container">
-        <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <div class="container con">
-        <!-- here starts the loop >  -->
-        <h1>
-            <h:outputText value="#{graveEditController.title}" />
-        </h1>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="container con">
+                    <h1>
+                        <h:outputText value="#{graveEditController.title}" />
+                    </h1>
 
-            <h:form>
-                <h:panelGrid columns="2" cellpadding="5">
-                    <h:outputLabel value="First Name" />
-                    <h:inputText id="a_firstname"
-                                 value="#{graveEditController.grave.firstname}" />
+                        <h:form id="graveAttributes">
+                            <p:panelGrid columns="2">
+                                <p:panelGrid columns="2" cellpadding="5">
+                                    <h:outputLabel value="First Name" />
+                                    <h:inputText id="a_firstname"
+                                                 value="#{graveEditController.grave.firstname}" />
 
-                    <h:outputLabel value="Last Name" />
-                    <h:inputText id="a_lastname"
-                                 value="#{graveEditController.grave.lastname}" />
+                                    <h:outputLabel value="Last Name" />
+                                    <h:inputText id="a_lastname"
+                                                 value="#{graveEditController.grave.lastname}" />
 
-                    <h:outputLabel value="Date of Birth" />
-                    <p:calendar id="a_dateBirth"
-                                value="#{graveEditController.grave.datebirth}" />
+                                    <h:outputLabel value="Date of Birth" />
+                                    <p:calendar id="a_dateBirth"
+                                                value="#{graveEditController.grave.datebirth}" />
 
-                    <h:outputLabel value="Date of Death" />
-                    <p:calendar id="a_dateDeath"
-                                value="#{graveEditController.grave.datedeath}" />
-                </h:panelGrid>
+                                    <h:outputLabel value="Date of Death" />
+                                    <p:calendar id="a_dateDeath"
+                                                value="#{graveEditController.grave.datedeath}" />
+                                </p:panelGrid>
+                                <p:panelGrid columns="1">
+                                    <h:graphicImage value="/resources/img/noimage.jpg"
+                                                    alt="noimage"
+                                                    styleClass="img-thumbnail" />
+                                </p:panelGrid>
+                            </p:panelGrid>
+                            <p:commandButton value="Save"
+                                             action="#{graveEditController.doSave}" />
+                            <p:commandButton value="Cancel"
+                                             action="#{graveEditController.doCancel}" />
+                        </h:form>
+                        <h:form id="upload" enctype="multipart/form-data">
+                            <p:fileUpload value="#{graveEditController.uploadedFile}"
+                                          fileUploadListener="#{graveEditController.doUpload}"
+                                          auto="true"
+                                          mode="advanced"/>
 
-                <h:commandButton value="Save"
-                                 action="#{graveEditController.doSave}" />
-                <h:commandButton value="Cancel"
-                                 action="#{graveEditController.doCancel}" />
-            </h:form>
-        </div></div></div></div>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </ui:define>
 </ui:composition>
