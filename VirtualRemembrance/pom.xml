@@ -100,11 +100,11 @@
                 <artifactId>primefaces</artifactId>
                 <version>${version.primefaces}</version>
             </dependency>
-            <dependency>
+            <!--<dependency>
                 <groupId>org.primefaces.themes</groupId>
                 <artifactId>all-themes</artifactId>
                 <version>${version.primefaces-themes}</version>
-            </dependency>
+            </dependency>-->
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-client</artifactId>
@@ -174,10 +174,10 @@
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>org.primefaces.themes</groupId>
             <artifactId>all-themes</artifactId>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-client</artifactId>
@@ -192,7 +192,7 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>provided</scope>
-            <version>5.1.47</version>
+            <version>8.0.17</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.test</groupId>
@@ -288,7 +288,7 @@
                     <dependency>
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
-                        <version>5.1.47</version>
+                        <version>8.0.17</version>
                     </dependency>
                 </dependencies>
                 <executions>
