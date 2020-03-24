@@ -37,7 +37,7 @@
         <version.maven.compiler.plugin>3.6.1</version.maven.compiler.plugin>
         <version.maven.surefire.plugin>2.18.1</version.maven.surefire.plugin>
         <version.maven.failsafe.plugin>2.16</version.maven.failsafe.plugin>
-        <liquibase.maven.plugin>3.5.3</liquibase.maven.plugin>
+        <liquibase.maven.plugin>3.8.8</liquibase.maven.plugin>
         <maven-antrun-plugin>1.8</maven-antrun-plugin>
         <version.jrebel>1.1.5</version.jrebel>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -117,6 +117,11 @@
                 <version>1.7.3</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>com.oracle.ojdbc</groupId>
+                <artifactId>ojdbc8</artifactId>
+                <version>19.3.0.0</version>
+            </dependency>
             <!--<dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
@@ -195,6 +200,12 @@
             <version>8.0.17</version>
         </dependency>
         <dependency>
+            <groupId>com.oracle.ojdbc</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.jboss.arquillian.test</groupId>
             <artifactId>arquillian-test-impl-base</artifactId>
             <version>1.1.12.Final</version>
@@ -268,16 +279,16 @@
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>${liquibase.maven.plugin}</version>
                 <configuration>
-                    <driver>com.mysql.jdbc.Driver</driver>
-                    <url>jdbc:mysql://localhost:3306</url>
-                    <defaultSchemaName>cimitery</defaultSchemaName>
-                    <username>rl</username>
+                    <driver>oracle.jdbc.OracleDriver</driver>
+                    <url>jdbc:oracle:thin:@localhost:1521:XE</url>
+                    <username>cimitery</username>
                     <password>cimitery</password>
                     <changeLogFile>db/db.changelog.xml</changeLogFile>
                     <contexts>dev</contexts>
+                    <defaultSchemaName>cimitery</defaultSchemaName>
                     <diffIncludeCatalog>false</diffIncludeCatalog>
                     <diffIncludeSchema>false</diffIncludeSchema>
-                    <changelogSchemaName>vr</changelogSchemaName>
+                    <changelogSchemaName>cimitery</changelogSchemaName>
                     <outputFileEncoding>UTF-8</outputFileEncoding>
                     <outputDefaultCatalog>false</outputDefaultCatalog>
                     <outputDefaultSchema>false</outputDefaultSchema>
@@ -286,9 +297,9 @@
                 </configuration>
                 <dependencies>
                     <dependency>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                        <version>8.0.17</version>
+                        <groupId>com.oracle.ojdbc</groupId>
+                        <artifactId>ojdbc8</artifactId>
+                        <version>19.3.0.0</version>
                     </dependency>
                 </dependencies>
                 <executions>
@@ -300,6 +311,7 @@
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
     <profiles>
