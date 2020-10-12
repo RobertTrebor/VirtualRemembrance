@@ -19,7 +19,7 @@
         <version.jboss.bom>1.0.7.Final</version.jboss.bom>
         <!-- Test -->
         <version.derby>10.10.1.1</version.derby>
-        <version.junit>4.12</version.junit>
+        <version.junit>4.13.1</version.junit>
         <version.arquillian_core>1.1.11.Final</version.arquillian_core>
         <version.arquillian.jboss>7.2.0.Final</version.arquillian.jboss>
         <!--TomEE-->
