@@ -37,7 +37,7 @@
         <version.maven.compiler.plugin>3.6.1</version.maven.compiler.plugin>
         <version.maven.surefire.plugin>2.18.1</version.maven.surefire.plugin>
         <version.maven.failsafe.plugin>2.16</version.maven.failsafe.plugin>
-        <liquibase.maven.plugin>3.5.3</liquibase.maven.plugin>
+        <liquibase.maven.plugin>4.8.0</liquibase.maven.plugin>
         <maven-antrun-plugin>1.8</maven-antrun-plugin>
         <version.jrebel>1.1.5</version.jrebel>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
