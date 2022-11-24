@@ -120,7 +120,7 @@
             <!--<dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
-                <version>5.2.2.Final</version>
+                <version>5.3.20.Final</version>
                 <scope>provided</scope>
             </dependency>-->
         </dependencies>
@@ -185,7 +185,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.2.2.Final</version>
+            <version>5.3.20.Final</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -441,7 +441,7 @@
                     <!--<dependency>
                         <groupId>org.hibernate</groupId>
                         <artifactId>hibernate-core</artifactId>
-                        <version>5.2.2.Final</version>
+                        <version>5.3.20.Final</version>
                         <scope>compile</scope>
                     </dependency>-->
                 </dependencies>
